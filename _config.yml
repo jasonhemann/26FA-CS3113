@@ -223,7 +223,6 @@ pagination:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
   - jekyll-remote-theme
   - jekyll-include-cache
@@ -233,7 +232,6 @@ plugins:
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
   - jekyll-remote-theme
   - jekyll-include-cache
