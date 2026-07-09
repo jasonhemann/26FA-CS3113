@@ -51,13 +51,18 @@ hours]({{ site.baseurl }}/office-hours/).
 
 ## Grade Breakdown
 
-I will assign overall course grades as follows:
+I will assign overall course grades as follows. 
 
-	 | Category                  | Weight (%) |
-	 |---------------------------+------------|
-	 |
-	 | Course eval               |          1 |
-	 | Total                     |        101 |
+<!-- Each evaluated assignment, assessment category, or other graded
+component should be listed below together with its percentage
+contribution to the final course grade. The percentages in this
+section should sum to 100. -->
+
+	 | Category                               | Weight (%) |
+	 |----------------------------------------+------------|
+	 | Replace with evaluated coursework item |         XX |
+	 | Replace with evaluated coursework item |         YY |
+	 | Total                                  |        100 |
 
 
 
@@ -156,41 +161,39 @@ in particularly ill-suited to your class schedule, let me know and we
 may be able to adjust them. As per current university guidance, we
 will hold these office hours remotely.
 
-## Plagiarism & Cheating
+## Academic Integrity
 
-In this context, cheating refers to copying or submitting as your own,
-with or without consent, someone else's work as your own.
-Misrepresentation of someone else's work as one's own is a grave
-violation of academic ethics. This includes copying from someone else
-answers to questions during an examination as well as copying programs
-from internet sources. Plagiarism refers to using someone else's work
-in your own and not properly crediting the authors of that work. This
-includes adapting someone else's code to solve a problem or write a
-program. There will be no tolerance for cheating and plagiarism in
-this course. Any material that is not entirely your own work needs to
-be properly indicated and cited. This includes any work produced
-together with fellow students. You MUST indicate any sources of help
-outside of the course text(s) and your own work, including the names
-of students with whom you worked, internet resources or other sources
-of help. Failure to do so constitutes a violation of academic
-integrity. When in doubt, ask your instructor. Violations of academic
-integrity will lead to a score of zero on the offending assignment and
-likely an immediately failing grade for the course.
+Seton Hall University's academic integrity policy applies to this
+course. Students are responsible for understanding and complying with
+the University's standards and procedures regarding plagiarism,
+cheating, unauthorized collaboration, falsification, and other forms
+of academic dishonesty. The official University policy is published in
+the undergraduate catalog's [Academic Policies and
+Procedures](https://catalogue.shu.edu/undergraduate/academic-policies-procedures/).
 
-## Academic Accommodations
+All submitted work must be properly attributed and must clearly
+indicate any permitted collaboration or outside assistance, including
+internet resources and AI tools when their use is allowed by the
+assignment. Work presented as your own that is not your own, or that
+misrepresents the source or extent of assistance received, violates
+academic integrity and will be handled under University policy. Course
+specific consequences, where imposed, will be at least as strong as
+the University policy.
+
+## Academic Accomodations {#academic-accommodations}
 
 It is the policy and practice of Seton Hall University to promote
 inclusive learning environments. If you have a documented disability
 you may be eligible for reasonable accommodations in compliance with
-University policy, the Americans with Disabilities Act, Section 504 of
-the Rehabilitation Act, and/or the New Jersey Law against
+University policy, the Americans with Disabilities Act, Section 504
+of the Rehabilitation Act, and/or the New Jersey Law against
 Discrimination. Please note, students are not permitted to negotiate
 accommodations directly with professors. To request accommodations or
-assistance, please self-identify with the Office for Disability
-Support Services (DSS), Duffy Hall, Room 67 at the beginning of the
-semester. For more information or to register for services, contact
-DSS at (973) 313-6003 or by [e-mail](mailto:DSS@shu.edu), or visit
-their [webpage](https://www.shu.edu/disability-support-services/index.cfm).
+assistance, please self-identify with the [Office for Disability
+Support Services (DSS)](https://www.shu.edu/disability-support-services/),
+Duffy Hall, Room 67 at the beginning of the semester. For more
+information or to register for services, contact DSS at
+(973) 313-6003 or by e-mail at [DSS@shu.edu](mailto:DSS@shu.edu).
 
 ## Equity and Compliance
 
