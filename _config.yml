@@ -1,13 +1,13 @@
 # === CHANGE THESE PER COURSE ===
-title                    : "Course Website Template"
+title                    : "26FA-CS3113"
 title_separator          : # "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Jason Hemann"
-date                     : "Spring 2026"
+date                     : "Fall 2026"
 description              : # ""
-baseurl                  : "/course-site-template"
-repository               : "jasonhemann/course-site-template"
-masthead_title           : "Semester YYYY CourseName"
+baseurl                  : "/26FA-CS3113"
+repository               : "jasonhemann/26FA-CS3113"
+masthead_title           : "Fall 2026 Programming Languages"
 # === END CHANGE THESE ===
 
 # Site Settings
