@@ -50,7 +50,15 @@ classes: wide
 		  {% endunless %}
 		  {% assign release_day_seconds = release_day_offset | times: SECONDS_PER_DAY | plus: week_start_seconds %}
 		  {% assign due_at = hw.due_at | default: hw.due_date %}
-		  <li><strong>{{ hw.title }}:</strong> {% if hw.release_at %}Released {{ hw.release_at | date: '%a, %b %d at %-I:%M %p' }}{% elsif release_day_offset >= 0 %}Released {{ release_day_seconds | date: '%a, %b %d' }}{% else %}Release date TBA{% endif %}{% if due_at %}; due {{ due_at | date: '%a, %b %d at %-I:%M %p' }}{% endif %}{% if hw.starter_code %} | <a href="{{ site.sourceurl }}{{ site.baseurl }}/tree/master/_starter_code/{{ hw.starter_code }}">Assignment</a>{% endif %}</li>
+		  <li><strong>{{ hw.title }}:</strong>
+			{% if hw.release_at %}
+			  Released {{ hw.release_at | date: '%a, %b %d at %-I:%M %p' }}
+			{% elsif release_day_offset >= 0 %}
+			  Released {{ release_day_seconds | date: '%a, %b %d' }}
+			{% else %}
+			  Release date TBA
+			{% endif %}
+			{% if due_at %}; due {{ due_at | date: '%a, %b %d at %-I:%M %p' }}{% endif %}{% if hw.starter_code %} | <a href="{{ site.sourceurl }}{{ site.baseurl }}/tree/master/_starter_code/{{ hw.starter_code }}">Assignment</a>{% endif %}</li>
 		  {% endfor %}
 		</ul>
  </li>
