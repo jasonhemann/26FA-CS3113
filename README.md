@@ -76,16 +76,6 @@ pandoc syllabus_rendered.md --metadata-file=_config.yml -o syllabus.pdf
 
 Schedule data lives in [`_data/schedule.yml`](_data/schedule.yml), and the page template is [`schedule.md`](schedule.md).
 
-Each homework entry may use exact ISO-8601 `release_at` and `due_at`
-timestamps. The older day-only `out` and timestamp `due_date` fields remain
-supported; `release_day` is the clearer day-only replacement for `out`.
-
-Sessions default to the visible label `Lecture`. Set `session_label` when a
-different label such as `Exam`, `Review`, or `No class` should appear. The
-older `kind` field remains a compatibility fallback. An optional scalar
-`quiz_topic` renders a visually distinct Quiz subsection above the ordinary
-lecture topics; omitting it leaves older schedule data unchanged.
-
 Typical loop:
 
 1. Edit `_data/schedule.yml`

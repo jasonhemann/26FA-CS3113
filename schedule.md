@@ -34,37 +34,23 @@ classes: wide
 
  <summary><strong>{{ week_start_seconds | date: "%b-%d" }} - {{ week_end_seconds | date: "%b-%d" }} </strong></summary>
   <ul>
-	{% if week.homework.size > 0 %}
-  <li><strong>Assignments released:</strong>
-		<ul>
-		  {% for hw in week.homework %}
-		  {% assign release_day = hw.release_day | default: hw.out %}
-		  {% assign release_day_offset = -1 %}
-		  {% unless hw.release_at %}
-			{% for day in days %}
-			  {% if day == release_day %}
-				{% assign release_day_offset = forloop.index0 %}
-				{% break %}
-			  {% endif %}
-			{% endfor %}
-		  {% endunless %}
-		  {% assign release_day_seconds = release_day_offset | times: SECONDS_PER_DAY | plus: week_start_seconds %}
-		  {% assign due_at = hw.due_at | default: hw.due_date %}
-		  <li><strong>{{ hw.title }}:</strong>
-			{% if hw.release_at %}
-			  Released {{ hw.release_at | date: '%a, %b %d at %-I:%M %p' }}
-			{% elsif release_day_offset >= 0 %}
-			  Released {{ release_day_seconds | date: '%a, %b %d' }}
-			{% else %}
-			  Release date TBA
-			{% endif %}
-			{% if due_at %}; due {{ due_at | date: '%a, %b %d at %-I:%M %p' }}{% endif %}{% if hw.starter_code %} | <a href="{{ site.sourceurl }}{{ site.baseurl }}/tree/master/_starter_code/{{ hw.starter_code }}">Assignment</a>{% endif %}</li>
-		  {% endfor %}
-		</ul>
+  <li><strong>Assignments:</strong>
+	<ul>
+	  {% for hw in week.homework %}
+	  {% assign out_day_offset = -1 %}
+	  {% for day in days %}
+		{% if day == hw.out %}
+		  {% assign out_day_offset = forloop.index0 %}
+		  {% break %}
+		{% endif %}
+	  {% endfor %}
+	  {% assign out_day_seconds = out_day_offset | times: SECONDS_PER_DAY | plus: week_start_seconds %}
+	  <li><strong>{{ hw.title }}:</strong> Assigned on {{ out_day_seconds | date: '%a, %b %d' }} {% if hw.starter_code %} | <a href="{{ site.sourceurl }}{{ site.baseurl }}/tree/master/_starter_code/{{ hw.starter_code }}">Assignment</a>{% endif %}</li>
+	  {% endfor %}
+	</ul>
  </li>
-	{% endif %}
   {% for session in week.sessions %}
-  {% assign session_day_offset = -1 %}
+  {% assign out_day_offset = -1 %}
   {% for day in days %}
 	{% if day == session.day %}
 	  {% assign session_day_offset = forloop.index0 %}
@@ -72,13 +58,9 @@ classes: wide
 	{% endif %}
   {% endfor %}
   {% assign session_seconds = session_day_offset | times: SECONDS_PER_DAY | plus: week_start_seconds %}
-  {% assign session_label = session.session_label | default: session.kind | default: "Lecture" %}
-  <li><strong>{% if session_day_offset >= 0 %}{{ session_seconds | date: '%a, %b %d' }}{% else %}Date TBA{% endif %} {{ session_label }}: {{session.title}} </strong>
-		<ul>
-		  {% if session.quiz_topic %}
-		  <li class="schedule-quiz"><strong>Quiz:</strong> {{ session.quiz_topic }}</li>
-		  {% endif %}
-		  {% if session.topics.size > 0 %}
+  <li><strong>{{ session_seconds | date: '%a, %b %d' }} Lecture: {{session.title}} </strong>
+	<ul>
+	  {% if session.topics.size > 0 %}
 	  <li><strong>Topics:</strong>
 		<ul>
 		  {% for topic in session.topics %}
