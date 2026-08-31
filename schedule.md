@@ -58,7 +58,7 @@ classes: wide
 	{% endif %}
   {% endfor %}
   {% assign session_seconds = session_day_offset | times: SECONDS_PER_DAY | plus: week_start_seconds %}
-  <li><strong>{{ session_seconds | date: '%a, %b %d' }} Lecture: {{session.title}} </strong>
+  <li><strong>{{ session_seconds | date: '%a, %b %d' }} Lecture: {% if session.link %}<a href="{{ session.link | relative_url }}">{{ session.title }}</a>{% else %}{{session.title}}{% endif %} </strong>
 	<ul>
 	  {% if session.topics.size > 0 %}
 	  <li><strong>Topics:</strong>

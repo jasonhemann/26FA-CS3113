@@ -12,7 +12,8 @@ weeks:
         starter_code: "quiz2"
     sessions:
       - day: W  # Monday
-        title: ""
+        title: "Example lecture 1"
+        link: "/lec/example-lecture-1/"
         topics:
           - desc: ""
         pre_readings:
@@ -27,7 +28,8 @@ weeks:
     homework: []
     sessions:
       - day: M  # Monday
-        title: ""
+        title: "Example lecture 2"
+        link: "/lec/example-lecture-2/"
         topics:
           - desc: ""
         pre_readings:
