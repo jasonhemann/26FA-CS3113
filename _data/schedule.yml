@@ -1,462 +1,362 @@
 first_week_of_year_offset: 1 # Bad name - #days to shift from day of semester start timestamp to the day of week each week should start on (Monday)
-semester_start: "2026-01-11T00:00:00-05:00" # Date of Sunday before start of semester, America:New York
-semester_start_week: 3 # https://www.epochconverter.com/weeks/202X
 # https://www.timeanddate.com/time/change/usa?year=202X
 dst_start_week: 10 # Week no. of Sunday where early AM DST happens
+semester_start: "2026-08-30T00:00:00-04:00" # Date of Sunday before start of semester, America:New York
+semester_start_week: 36
 dst_end_week: 44
 weeks:
   - week_offset: 0
     homework:
-      - title: "Basic Environment Setup Quiz"
-        out: W
-        starter_code: "quiz2"
+      - title: "Assignment 1: Racket Recursion and Higher-Order List Programming"
+        out: M
+        starter_code: "hw1"
     sessions:
-      - day: W  # Monday
-        title: "Example lecture 1"
-        link: "/lec/example-lecture-1/"
+      - day: M
+        title: "Racket, recursion, and higher-order list programming"
         topics:
-          - desc: ""
+          - desc: "Course orientation and the interpreter-to-compiler arc"
+          - desc: "Natural recursion over lists"
+          - desc: "Functions as values; map, filter, and procedural abstraction"
         pre_readings:
-          - title: "Course Syllabus"
+          - title: "Course syllabus"
             link: "../syllabus/"
-          - title: "Ch 1, \"Some Book\""
-        videos:
-          - title: "Video"
-            link: "https://example.com"
+        videos: []
+      - day: W
+        title: "letrec, quasiquote, and match"
+        topics:
+          - desc: "Recursive local bindings"
+          - desc: "Quasiquotation and unquotation for constructing syntax"
+          - desc: "Structural pattern matching over Racket data"
+        pre_readings: []
+        videos: []
         extra_resources: []
+
   - week_offset: 1
     homework: []
     sessions:
-      - day: M  # Monday
-        title: "Example lecture 2"
-        link: "/lec/example-lecture-2/"
+      - day: M
+        title: "No class — Labor Day (University closed)"
+        topics: []
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Free and bound variables; lexical address"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
-        topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Binding structure and variable occurrence"
+          - desc: "Free and bound variables"
+          - desc: "Lexical addressing as a structurally recursive syntax transformation"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 2
-    homework: []
+    homework:
+      - title: "Assignment 2: Free and Bound Variables and Lexical Address"
+        out: M
+        starter_code: "hw2"
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Introduction to interpreters"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
+          - desc: "Quiz: Assignment 1 verification — recursion and higher-order list programming"
+          - desc: "A higher-order definitional interpreter for a small functional language"
+          - desc: "Environments, closures, and compositional evaluation"
+        pre_readings: []
+        videos: []
         extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+      - day: W
+        title: "Shortened class — Lambda-calculus syntax and substitution"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Class meets 1:00-1:45 p.m. after the Mass of the Holy Spirit"
+          - desc: "Capture-avoiding substitution and alpha-equivalence"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 3
-    homework: []
+    homework:
+      - title: "Assignment 3: Interpreters and Representation Independence"
+        out: M
+        starter_code: "hw3"
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Representation-independent environments and closures"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Quiz: Assignment 2 verification — free variables and lexical address"
+          - desc: "Functional and data-structural representations of environments"
+          - desc: "Functional and data-structural representations of closures"
+          - desc: "Programming against interfaces rather than representations"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Lexical and dynamic scope"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Where an interpreter chooses the environment for a procedure body"
+          - desc: "Predicting the observable differences between lexical and dynamic binding"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 4
-    homework: []
+    homework:
+      - title: "Assignment 4: Representation-Independent Closures and Dynamic Scope"
+        out: M
+        starter_code: "hw4"
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Parameter-passing conventions"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Quiz: Assignment 3 verification — interpreters and representation independence"
+          - desc: "Call by value, reference, name, and need"
+          - desc: "Boxes, mutation, thunks, and memoization"
+          - desc: "Assignment 3 code-review appointments begin after submission"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Parameter-passing interpreter workshop"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Implementing four parameter-passing conventions by changing an evaluator"
+          - desc: "Comparing their observable behavior with small discriminating programs"
+        pre_readings: []
+        videos: []
+        extra_resources: []
   - week_offset: 5
-    homework: []
+    homework:
+      - title: "Assignment 5: Parameter-Passing Conventions"
+        out: M
+        starter_code: "hw5"
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Exam 1 review"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Quiz: Assignment 4 verification — closures and lexical versus dynamic scope"
+          - desc: "Racket, recursion, quasiquote, match, free and bound variables, and lexical address"
+          - desc: "Interpreters, representation independence, closures, and lexical versus dynamic scope"
+          - desc: "Assignment 5 remains in progress during the exam week"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Exam 1"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Individual, closed-resource, and closed-device, in class"
+          - desc: "Cumulative through Assignment 4; parameter passing is not included"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 6
     homework: []
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "No class — Fall Break"
+        topics: []
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Lambda calculus and equational reasoning"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
-        topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Alpha, beta, and eta equivalence"
+          - desc: "Reduction strategies and equational reasoning"
+          - desc: "Universality and the relationship between calculus and interpreter"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 7
-    homework: []
+    homework:
+      - title: "Assignment 6: Continuation-Passing Style"
+        out: M
+        starter_code: "hw6"
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Introduction to continuations and CPS"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Quiz: Assignment 5 verification — parameter-passing conventions"
+          - desc: "System continuations, escape, and explicit control"
+          - desc: "Systematic continuation-passing-style transformation"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "CPS interpreters"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Transforming an evaluator into continuation-passing style"
+          - desc: "Simple and serious expressions, administrative bindings, and tail calls"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 8
-    homework: []
+    homework:
+      - title: "Assignment 7: CPS Interpreters and Representation-Independent Continuations"
+        out: M
+        starter_code: "hw7"
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Representation-independent continuations"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Quiz: Assignment 6 verification — continuation-passing style"
+          - desc: "Defunctionalizing continuations and introducing apply-k"
+          - desc: "Programming against a continuation interface rather than its representation"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Store-passing style"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Threading an explicit store alongside a computation's value"
+          - desc: "Environments as mappings from variables to locations and stores as mappings from locations to values"
+          - desc: "Interpreting assignment and sequencing without relying on host-language mutation"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 9
-    homework: []
+    homework:
+      - title: "Assignment 8: Registerization and Trampolining"
+        out: M
+        starter_code: "hw8"
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Registerization"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
+          - desc: "Quiz: Assignment 7 verification — CPS interpreters and continuation representations"
+          - desc: "Replacing parameters with registers"
+          - desc: "Program-counter style and the path toward an abstract machine"
+        pre_readings: []
+        videos: []
         extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - title: "Historical notes: Representation Independence Procedure"
+            link: "https://hemann.pl/representation-independence/"
+      - day: W
+        title: "Trampolining"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Trampolines and bounded host-stack use"
+          - desc: "Iterative control over registerized procedures"
+          - desc: "Assignment 8 emphasizes registerization and finishes with trampolining"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 10
-    homework: []
+    homework:
+      - title: "Assignment 9: ParentheC Interpreter and Code Review"
+        out: M
+        starter_code: "hw9"
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "ParentheC demonstration"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Quiz: Assignment 8 verification — registerization and trampolining"
+          - desc: "Unionizing data, dismounting the trampoline, and translating to C"
+          - desc: "Assignment 9 resumes the corrected Assignment 7 interpreter"
+          - desc: "The code review may draw from any preserved intermediate version"
+          - desc: "Assignment 9 deadline: Sunday, November 29, at 10 p.m. Eastern"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Assignment 9 transformation workshop"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "A-normal form, CPS, representation independence, registerization, and trampolining"
+          - desc: "pc2c and the boundary between the Racket and C versions"
+          - desc: "Testing after every semantics-preserving step"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 11
     homework: []
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Macros and language extension"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Syntactic abstraction with syntax-rules"
+          - desc: "When a library is not enough: extending a language's grammar"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Exam 2 review"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Cumulative review with emphasis on parameter passing, CPS, continuation representation, registerization, and trampolining"
+          - desc: "Assignment 9 itself is not on Exam 2"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 12
     homework: []
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Exam 2"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
-        topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Individual, closed-resource, and closed-device, in class"
+          - desc: "Cumulative, with emphasis on parameter passing through trampolining"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "No class — Thanksgiving recess"
+        topics: []
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 13
     homework: []
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Objects through interpreters"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Objects, classes, and method dispatch as language features"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Types and type inference"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Single cumulative paper-quiz makeup window for documented additional absences"
+          - desc: "Static semantics and type judgments"
+          - desc: "Constraint generation, unification, and inference"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 14
     homework: []
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Staging, compiler structure, and domain-specific languages"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
+          - desc: "Moving computation across stages"
+          - desc: "Lexing, parsing, elaboration, evaluation, and compilation"
+          - desc: "Designing languages for particular problem domains"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Exam 3 review"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Cumulative review, including regression from Exams 1 and 2"
+          - desc: "Objects, types, staging, compilers, and language extension"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+
   - week_offset: 15
     homework: []
     sessions:
-      - day: M  # Monday
-        title: ""
+      - day: M
+        title: "Exam 3"
         topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-           - title: ""
-             link: ""
-      - day: W  # Wednesday
-        title: ""
-        topics:
-          - desc: ""
-        pre_readings:
-          - title: ""
-            link: ""
-        videos:
-          - title: ""
-            link: ""
-        extra_resources:
-          - title: ""
-            link: ""
+          - desc: "Individual, closed-resource, and closed-device, in class on the last day of class"
+          - desc: "Cumulative, with emphasis on the post-Exam 2 material"
+        pre_readings: []
+        videos: []
+        extra_resources: []

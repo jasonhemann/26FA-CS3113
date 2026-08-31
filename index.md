@@ -1,7 +1,6 @@
 ---
 title: Welcome
 layout: single #home
-mathjax: true
 author_profile: true
 social: true
 sidebar:
@@ -11,21 +10,26 @@ sidebar:
 
 <blockquote class="epigraph">
   <p>
-    Kurt Gödel was the first person to realize and exploit the fact that the
-    positive integers, though they might superficially seem to be very
-    austere and isolated, in fact constitute a profoundly rich
-    representational medium. They can mimic or mirror any kind of pattern.
+    A language that doesn't affect the way you think about programming is
+    not worth knowing.
   </p>
   <footer>
-    <cite>Douglas R. Hofstadter, <em>I Am a Strange Loop</em></cite>
+    <cite>Alan J. Perlis,
+      <a href="https://doi.org/10.1145/947955.1083808"><em>Epigrams on Programming</em></a>
+    </cite>
   </footer>
 </blockquote>
 
-\\(x \in A \\)
+CSAS 3113 studies programming languages by building and transforming
+interpreters. We will use Racket to make binding, scope, parameter passing,
+control, abstract machines, and compilation concrete.
 
-## Lecture
+## Class meetings
 
+| Course | Section | Instructor | Dates | Time | Location |
+|---|---|---|---|---|---|
+| CSAS 3113 | BA | Jason Hemann | Aug. 31-Dec. 14 | Mon./Wed. 12:30–1:45 p.m. | SC 109 (McNulty Hall) |
 
- | Lecture | Instructor | Dates | Time | Location |
- |         | Jason      |       |      |          |
-
+See the [schedule]({{ site.baseurl }}/schedule/) for the topic, assignment,
+quiz, and exam calendar, and the [syllabus]({{ site.baseurl }}/syllabus/) for
+the authoritative assessment policies and deadlines.

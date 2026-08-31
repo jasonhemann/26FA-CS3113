@@ -11,6 +11,6 @@ jobs:
       - name: Check published links
         uses: JustinBeckwith/linkinator-action@v2
         with:
-          paths: https://hemann.pl/course-site-template
+          paths: https://hemann.pl/26FA-CS3113
           config: linkinator.config.json
           timeout: 15000

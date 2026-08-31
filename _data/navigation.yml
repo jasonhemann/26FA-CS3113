@@ -25,12 +25,14 @@ sidebar-site-map:
     url: /people/
   - title: "Syllabus"
     url: /syllabus/
+  - title: "Code Reviews"
+    url: /viva/
   - title: "Tech"
     url: /tech/
   - title: "FAQ"
     url: /FAQ/
   - title: "Site Source"
-    url: https://example.com
+    url: https://github.com/jasonhemann/26FA-CS3113
   - title: "Enrichment"
     url: /enrichment/
   - title: "How's My Driving?"

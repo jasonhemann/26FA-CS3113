@@ -1,10 +1,10 @@
 # === CHANGE THESE PER COURSE ===
 title                    : "26FA-CS3113"
 title_separator          : # "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : "CSAS 3113"
 name                     : "Jason Hemann"
 date                     : "Fall 2026"
-description              : # ""
+description              : "Programming Languages"
 baseurl                  : "/26FA-CS3113"
 repository               : "jasonhemann/26FA-CS3113"
 masthead_title           : "Fall 2026 Programming Languages"
@@ -15,8 +15,8 @@ remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-url                      : "http://jasonhemann.github.io/"
-sourceurl                : "http://github.com/jasonhemann"
+url                      : "https://hemann.pl"
+sourceurl                : "https://github.com/jasonhemann"
 github                   : [metadata]
 teaser                   : "/assets/images/500x300.png"
 logo                     : "" # "/assets/images/88x88.png"
@@ -112,7 +112,7 @@ author:
   location         : "South Orange, NJ"
   twitter          : "jhemann"
   office_hours_location: McQuaid 210
-  office_hours     : 8am-930am Tues, or by appt.
+  office_hours     : "Tuesdays, 8:00–9:30 a.m., McQuaid Hall 210; or by appointment"
   email            : "hemannja@shu.edu"
   bitbucket        : "jhemann-shu"
   github           : "jasonhemann"
