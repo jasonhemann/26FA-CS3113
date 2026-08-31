@@ -32,7 +32,10 @@ weeks:
         extra_resources: []
 
   - week_offset: 1
-    homework: []
+    homework:
+      - title: "Assignment 2: Free and Bound Variables and Lexical Address"
+        out: M
+        starter_code: "hw2"
     sessions:
       - day: M
         title: "No class — Labor Day (University closed)"
@@ -43,6 +46,7 @@ weeks:
       - day: W
         title: "Free and bound variables; lexical address"
         topics:
+          - desc: "Quiz: Assignment 1 verification — recursion and higher-order list programming"
           - desc: "Binding structure and variable occurrence"
           - desc: "Free and bound variables"
           - desc: "Lexical addressing as a structurally recursive syntax transformation"
@@ -52,41 +56,40 @@ weeks:
 
   - week_offset: 2
     homework:
-      - title: "Assignment 2: Free and Bound Variables and Lexical Address"
+      - title: "Assignment 3: Interpreters and Representation Independence"
         out: M
-        starter_code: "hw2"
+        starter_code: "hw3"
     sessions:
       - day: M
         title: "Introduction to interpreters"
         topics:
-          - desc: "Quiz: Assignment 1 verification — recursion and higher-order list programming"
+          - desc: "Quiz: Assignment 2 verification — free variables and lexical address"
           - desc: "A higher-order definitional interpreter for a small functional language"
           - desc: "Environments, closures, and compositional evaluation"
         pre_readings: []
         videos: []
         extra_resources:
       - day: W
-        title: "Shortened class — Lambda-calculus syntax and substitution"
+        title: "Shortened class — Finishing representation-independent environments and closures"
         topics:
           - desc: "Class meets 1:00-1:45 p.m. after the Mass of the Holy Spirit"
-          - desc: "Capture-avoiding substitution and alpha-equivalence"
+          - desc: "Functional and data-structural representations of environments"
+          - desc: "Functional and data-structural representations of closures"
+          - desc: "Programming against interfaces rather than representations"
         pre_readings: []
         videos: []
         extra_resources: []
 
   - week_offset: 3
-    homework:
-      - title: "Assignment 3: Interpreters and Representation Independence"
-        out: M
-        starter_code: "hw3"
+    homework: []
     sessions:
       - day: M
-        title: "Representation-independent environments and closures"
+        title: "Lambda-calculus substitution and normalization"
         topics:
-          - desc: "Quiz: Assignment 2 verification — free variables and lexical address"
-          - desc: "Functional and data-structural representations of environments"
-          - desc: "Functional and data-structural representations of closures"
-          - desc: "Programming against interfaces rather than representations"
+          - desc: "Quiz: Assignment 3 verification — interpreters and representation independence"
+          - desc: "Capture-avoiding substitution and alpha-equivalence"
+          - desc: "Alpha-, beta-, and eta-normalization"
+          - desc: "Normalization by evaluation (NbE)"
         pre_readings: []
         videos: []
         extra_resources: []
@@ -108,7 +111,6 @@ weeks:
       - day: M
         title: "Parameter-passing conventions"
         topics:
-          - desc: "Quiz: Assignment 3 verification — interpreters and representation independence"
           - desc: "Call by value, reference, name, and need"
           - desc: "Boxes, mutation, thunks, and memoization"
         pre_readings: []
