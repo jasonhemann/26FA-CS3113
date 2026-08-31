@@ -1,6 +1,7 @@
 ---
 title: Welcome
 layout: single #home
+mathjax: true
 author_profile: true
 social: true
 sidebar:
@@ -27,5 +28,4 @@ sidebar:
 
  | Lecture | Instructor | Dates | Time | Location |
  |         | Jason      |       |      |          |
-
 
