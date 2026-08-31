@@ -41,16 +41,24 @@ Then open: `http://127.0.0.1:4000/course-site-template/`
 
 ## Contributor Workflow
 
-### 1) Update site author / people-page information
+### 1) Update instructor / People-page information
 
-A common contributor task is updating the People page. That data lives in [`_data/personnel.yml`](_data/personnel.yml), and the page is rendered from [`people.md`](people.md).
+A common contributor task is updating the People page, which is rendered from
+[`people.md`](people.md).
 
-Each entry should include:
+`site.author` is always the course instructor and is the single canonical
+instructor record. Keep all instructor details in the `author` mapping in
+[`_config.yml`](_config.yml), including the instructor's name, raw email address
+(without a `mailto:` prefix), and office hours. [`people.md`](people.md) renders
+the instructor explicitly as its first row with the role `Instructor`.
+
+[`_data/personnel.yaml`](_data/personnel.yaml) is only for additional course
+personnel such as TAs, tutors, learning assistants, and graders. Do not add the
+instructor there. Each additional-person entry should include:
 
 - `name`
-- `role` (for example `Instructor`, `TA`, `Tutor`, `Grader`)
-- `email` (or leave blank)
-- `email_link` (typically `mailto:...`, or leave blank)
+- `role` (for example `TA`, `Tutor`, or `Grader`)
+- `email` as a raw address (or leave blank)
 - `office_hours` (or leave blank)
 
 The general contributor loop is: update the source data, run the site locally, and review the rendered page.
@@ -69,8 +77,13 @@ If you need PDF output:
 
 ```bash
 ./syllabus_prebuild.rb
-pandoc syllabus_rendered.md --metadata-file=_config.yml -o syllabus.pdf
+pandoc syllabus_rendered.md -o syllabus.pdf
 ```
+
+The prebuild derives Pandoc's scalar `author` and `date` metadata from the
+canonical instructor mapping and course date in `_config.yml`. Do not pass
+`_config.yml` directly as Pandoc metadata: its `author` value is a mapping for
+Jekyll, not the scalar author value expected by Pandoc.
 
 ### 3) Update schedule and related course content
 
@@ -85,5 +98,6 @@ Typical loop:
 ## Notes
 
 - The local Ruby/Jekyll toolchain is pinned in [`Gemfile`](Gemfile), [`Gemfile.lock`](Gemfile.lock), and [`.ruby-version`](.ruby-version).
-- This template uses [`_data/authors.yml`](_data/authors.yml) for site author metadata; keep that file for instructor/sidebar metadata.
+- The `author` mapping in [`_config.yml`](_config.yml) supplies the instructor
+  information used by the People page, syllabus, and author sidebar.
 - The first `jekyll serve` on a new machine needs internet access to download the remote theme.

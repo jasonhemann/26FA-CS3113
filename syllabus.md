@@ -40,7 +40,7 @@ notice, or by changes to this syllabus posted on the course website.
 
 The best way to get in contact for personal, private (FERPA, etc)
 messages is via my email address
-[{{ site.author.emailaddr }}]({{ site.author.email }}). You should expect a
+[{{ site.author.email }}](mailto:{{ site.author.email }}). You should expect a
 response within 48 hours. You will find that I am faster with
 [Piazza](piazza) or our public forums. If I deem it even potentially
 useful to others, I will likely anonymize your letter, re-post it on
