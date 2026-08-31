@@ -7,14 +7,11 @@ sort: due
 
 ## Assignment Location
 
-Each assignment has a stable link from the
-[schedule]({{ site.baseurl }}/schedule/). When an assignment is released, that
-folder contains its description and starter files. Assignments 3 and 9 have
-separately graded code reviews; each homework artifact and its review are
-distinct grade items. Those assignments will contain their own booking and
-preparation sections, including the booking link and window, the files and
-checkpoints to bring, the announced question family, and the
-assignment-specific review focus.
+Each assignment is linked from the
+[schedule]({{ site.baseurl }}/schedule/) and, when released, includes its
+description and starter files. Assignments 3 and 9 also have separately graded
+code reviews; their pages include the review requirements and Google Calendar
+booking links.
 
 ## Assignment Guidelines
 
@@ -30,6 +27,12 @@ assignment-specific review focus.
       we will grade the last submission prior to the due date (and
       time). This submission determines the homework-artifact score; any
       associated code-review score is recorded separately.
+
+      For Assignments 3 and 9, late or corrected work may still be used to
+      satisfy the code-review requirement through that review's absolute
+      grading deadline. It does not replace the homework-artifact score
+      determined by the last on-time submission. The assignment identifies the
+      version to bring to the review.
 
    1. I have linked notes and resources for you on the schedule; you
       should consult them.

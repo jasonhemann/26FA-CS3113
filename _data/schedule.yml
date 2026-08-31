@@ -111,7 +111,6 @@ weeks:
           - desc: "Quiz: Assignment 3 verification — interpreters and representation independence"
           - desc: "Call by value, reference, name, and need"
           - desc: "Boxes, mutation, thunks, and memoization"
-          - desc: "Assignment 3 code-review appointments begin after submission"
         pre_readings: []
         videos: []
         extra_resources: []

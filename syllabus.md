@@ -153,6 +153,9 @@ assignment.
 Assignments 1-8 receive automated submission-completion and basic-test credit
 only; routine individual written feedback is not part of their grading. I will
 love to go over them with you at office hours.
+
+Later assignments deliberately depend on earlier work:
+
 - Assignment 4 reuses corrected pieces of Assignments 2 and 3.
 - Assignment 7 builds on the CPS methods of Assignment 6.
 - Assignment 9 begins from a corrected, staged Assignment 7 interpreter.
@@ -176,26 +179,44 @@ additional written final examination.
 
 ## Assignment 3 and Assignment 9 Code Reviews
 
-Assignments 3 and 9 each have a separately graded, individual code review of
-the submitted interpreter in an approximately ten-minute appointment. Each
-review receives a numerical score and is associated with, but distinct from,
-its homework artifact. These course-specific rules are authoritative. For a
-general explanation of this kind of assessment, see [Oral code explanations
-and vivas](https://hemann.pl/teaching/vivas/); the course [code-review
-checklist]({{ site.baseurl }}/viva/) summarizes what to do before and during an
-appointment.
-Appointments use fixed blocks. Book through the link in the assignment during
-its published booking window. If a documented conflict or an approved
-accommodation makes the available blocks unusable, contact me before that
-window closes. An unarranged no-show uses that attempt. Accurately disclose
-permitted collaboration, sources, and tool use, and do not share another
-student's specific prompt before that student's explanation. Approved
-disability accommodations apply to these explanations as they do to other
-course assessments.
+Assignments 3 and 9 each include a separately graded, individual review of the
+submitted interpreter, lasting about ten minutes. See the
+[code-review page]({{ site.baseurl }}/viva/) for preparation and what to expect.
 
-Failure to pass both required code reviews by the deadlines stated in the
-relevant assignments means the course's must-pass requirements are unmet,
-regardless of the percentage total.
+A review passes when you demonstrate understanding and ownership of the
+submitted work; otherwise it is recorded as **Not yet** and must be repeated. A
+passing review receives one holistic rating:
+
+- **Convincing:** independent, accurate understanding throughout;
+- **Solid:** sound overall understanding with limited gaps or prompting; or
+- **Minimum pass:** adequate understanding and ownership of the central
+  mechanisms, despite gaps or substantial prompting on nonessential points.
+
+Each assignment maps these ratings to its own point values.
+
+Lateness and reassessment lower the maximum score, not the passing standard.
+Assignments 3 and 9 accrue penalty units separately. Each completed
+**Not yet** review or unarranged no-show adds one unit. An unexcused Calendar
+booking period with no substantive review adds one unit; a no-show in that
+period is not counted twice. Artifact lateness has its own consequence and adds
+no review unit beyond a missed booking period. Approved accommodations,
+documented exceptional circumstances, lack of instructor availability, and
+technical failures despite reasonable preparation add no unit.
+
+A passing review earns the lower of its quality score and the cap for its
+accumulated units. Earlier **Not yet** reviews affect only the cap, not the
+quality score. The cap never falls below the minimum passing score, but the
+grade remains incomplete until the review passes. That passing review's capped
+score is final.
+
+Each assignment provides its point values and cap table, Calendar schedule
+link, required files, checkpoints, and scope, and absolute grading deadline. The
+Calendar alone shows current appointment availability. Contact me promptly
+about conflicts; approved exceptions may receive an adjusted deadline. Do not
+share a review prompt with a student who has not yet completed that review.
+
+Both reviews must be passed by their stated or approved adjusted deadlines to
+receive a passing course grade.
 
 ## Course evaluations
 
