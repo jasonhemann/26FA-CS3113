@@ -1,8 +1,9 @@
 #lang racket
 
-;; Gradescope loads this file as a module and expects each of the names
-;; below to exist. Replace each "not implemented" expression with your
-;; solution, but keep the filename, names, and argument lists unchanged.
+;; Gradescope loads this file as a module and expects each required name
+;; in the provide form below to exist. Replace each "not implemented"
+;; expression with your solution, but keep the filename, names, and
+;; argument lists unchanged.
 
 (provide countdown
          insertR
@@ -21,57 +22,6 @@
          append-map
          set-difference
          cons-every)
-
-(define (countdown n)
-  (error 'countdown "not implemented"))
-
-(define (insertR old new ls)
-  (error 'insertR "not implemented"))
-
-(define (remv x ls)
-  (error 'remv "not implemented"))
-
-(define (list-index-ofv x ls)
-  (error 'list-index-ofv "not implemented"))
-
-(define (filter pred ls)
-  (error 'filter "not implemented"))
-
-(define (zip xs ys)
-  (error 'zip "not implemented"))
-
-(define (map p ls)
-  (error 'map "not implemented"))
-
-(define (append ls datum)
-  (error 'append "not implemented"))
-
-(define (reverse ls)
-  (error 'reverse "not implemented"))
-
-(define (fact n)
-  (error 'fact "not implemented"))
-
-(define (fib n)
-  (error 'fib "not implemented"))
-
-(define (binary->natural bits)
-  (error 'binary->natural "not implemented"))
-
-(define (minus n m)
-  (error 'minus "not implemented"))
-
-(define (div n m)
-  (error 'div "not implemented"))
-
-(define (append-map p ls)
-  (error 'append-map "not implemented"))
-
-(define (set-difference s1 s2)
-  (error 'set-difference "not implemented"))
-
-(define (cons-every x ls)
-  (error 'cons-every "not implemented"))
 
 
 #| Recursion and Higher-order Functional Abstraction |#
@@ -104,6 +54,9 @@ number, in descending order. Our natural numbers begin at zero.
 
 |#
 
+(define (countdown n)
+  (error 'countdown "not implemented"))
+
 
 
 #|
@@ -115,6 +68,9 @@ functions need only hold over eqv?-comparable structures.
 
 |#
 
+(define (insertR old new ls)
+  (error 'insertR "not implemented"))
+
 
 
 #|
@@ -125,6 +81,9 @@ occurrence (if any) of the input atom.
 
 |#
 
+(define (remv x ls)
+  (error 'remv "not implemented"))
+
 
 
 #|
@@ -134,6 +93,9 @@ and a list containing that element and returns the (base 0) index of
 that element in the list. List without that element are bad data.
 
 |#
+
+(define (list-index-ofv x ls)
+  (error 'list-index-ofv "not implemented"))
 
 
 
@@ -149,6 +111,9 @@ argument.
 
 |#
 
+(define (filter pred ls)
+  (error 'filter "not implemented"))
+
 
 
 #|
@@ -160,6 +125,9 @@ uneven length, zip will drop the tail of the longer one.
 
 |#
 
+(define (zip xs ys)
+  (error 'zip "not implemented"))
+
 
 
 #|
@@ -170,6 +138,9 @@ of applying p to the elements of ls. Do not use Racket's built-in map
 in your definition.
 
 |#
+
+(define (map p ls)
+  (error 'map "not implemented"))
 
 
 
@@ -183,6 +154,9 @@ about in class is sufficient.
 
 |#
 
+(define (append ls datum)
+  (error 'append "not implemented"))
+
 
 
 #|
@@ -191,6 +165,9 @@ about in class is sufficient.
 list with the elements of l in the opposite order
 
 |#
+
+(define (reverse ls)
+  (error 'reverse "not implemented"))
 
 
 
@@ -203,6 +180,9 @@ factorial of 0 is defined to be 1 (https://oeis.org/A000142).
 
 |#
 
+(define (fact n)
+  (error 'fact "not implemented"))
+
 
 
 #|
@@ -214,6 +194,9 @@ the sequence is computed by adding the two previous numbers.
 
 |#
 
+(define (fib n)
+  (error 'fib "not implemented"))
+
 
 #|
 
@@ -221,6 +204,9 @@ the sequence is computed by adding the two previous numbers.
 and returns a list with x consed to the front of each element of l.
 
 |#
+
+(define (cons-every x ls)
+  (error 'cons-every "not implemented"))
 
 #|
 
@@ -238,6 +224,9 @@ order and returns that number. For example:
 
 |#
 
+(define (binary->natural bits)
+  (error 'binary->natural "not implemented"))
+
 
 
 #|
@@ -247,6 +236,9 @@ function, minus, need only take nonnegative inputs where the result
 will be nonnegative.
 
 |#
+
+(define (minus n m)
+  (error 'minus "not implemented"))
 
 
 
@@ -258,6 +250,9 @@ first (that is, for the divisible abelian group that's a subgroup of
 Nat). Divisions by zero is of course bad data.
 
 |#
+
+(define (div n m)
+  (error 'div "not implemented"))
 
 
 
@@ -272,6 +267,9 @@ definition.
 
 |#
 
+(define (append-map p ls)
+  (error 'append-map "not implemented"))
+
 
 
 #|
@@ -279,6 +277,16 @@ definition.
 17. Define a function set-difference that takes two flat sets (lists
 with no duplicate elements) s1 and s2 and returns a list containing
 all the elements in s1 that are not in s2.
+
+|#
+
+(define (set-difference s1 s2)
+  (error 'set-difference "not implemented"))
+
+#| Optional enrichment
+
+Problems 18–22 are optional. Gradescope does not require or test them.
+They deliberately have no starter stubs.
 
 |#
 
