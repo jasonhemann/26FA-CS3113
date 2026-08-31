@@ -1,14 +1,11 @@
 ---
 title: "Lambda calculus and equational reasoning"
-date: 2026-10-14
+order: 8
 permalink: /lec/lambda-calculus-equational-reasoning/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished lecture-note draft. Its explanations
-> and examples are still under review.
 
 The untyped lambda calculus has only variables, abstraction, and application.
 Despite that tiny syntax, it can express data, control, and general

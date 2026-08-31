@@ -1,14 +1,11 @@
 ---
 title: "A small interpreter in continuation-passing style"
-date: 2026-10-21
+order: 10
 permalink: /lec/cps-interpreters/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished course note. Its explanations and
-> examples are still under review.
 
 An interpreter is an ordinary recursive program, so it can use the same
 continuation-passing interface as other recursive programs. In a CPS

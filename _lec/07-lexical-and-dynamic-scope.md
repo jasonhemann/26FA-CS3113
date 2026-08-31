@@ -1,14 +1,11 @@
 ---
 title: "Lexical and dynamic scope"
-date: 2026-09-23
+order: 7
 permalink: /lec/lexical-and-dynamic-scope/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished lecture-note draft. Its explanations
-> and examples are still under review.
 
 When a program contains a variable reference, which declaration gives that
 reference its value? A language's **scope rule** answers that question. Two

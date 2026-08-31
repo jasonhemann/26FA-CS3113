@@ -1,14 +1,11 @@
 ---
 title: "Free and bound variables and lexical address"
-date: 2026-09-09
+order: 3
 permalink: /lec/free-bound-variables-lexical-address/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished lecture-note draft. Its explanations
-> and examples are still under review.
 
 Variable names do two jobs in source code. A declaration introduces a name,
 while a reference uses a name. Lexical scope determines which declaration—if

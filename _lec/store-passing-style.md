@@ -1,14 +1,11 @@
 ---
 title: "Store-passing style"
-date: 2026-11-16
+order: 13
 permalink: /lec/store-passing-style/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished, unnumbered special-topic lecture
-> note. Its explanations and examples are still under review.
 
 **Store-passing style** (SPS) makes changing state explicit. An SPS procedure
 receives the current store and returns both its ordinary value and the store

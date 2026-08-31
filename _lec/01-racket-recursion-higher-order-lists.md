@@ -1,14 +1,11 @@
 ---
 title: "Racket recursion and higher-order list programming"
-date: 2026-08-31
+order: 1
 permalink: /lec/racket-recursion-higher-order-lists/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished lecture-note draft. Its explanations
-> and examples are still under review.
 
 Racket makes the structure of data unusually visible. A list is either empty
 or it has a first item and a smaller list containing the remaining items. Good

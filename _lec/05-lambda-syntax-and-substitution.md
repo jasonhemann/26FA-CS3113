@@ -1,14 +1,11 @@
 ---
 title: "Lambda syntax and capture-avoiding substitution"
-date: 2026-09-16
+order: 5
 permalink: /lec/lambda-syntax-and-substitution/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished lecture-note draft. Its explanations
-> and examples are still under review.
 
 Substitution sounds like textual replacement: replace `x` with another
 expression. Binding makes the real operation more careful. We must replace

@@ -1,14 +1,11 @@
 ---
 title: "Representation-independent continuations"
-date: 2026-10-26
+order: 11
 permalink: /lec/representation-independent-continuations/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished course note. Its explanations and
-> examples are still under review.
 
 The CPS factorial procedure represents each pending multiplication as a Racket
 procedure. That representation is convenient, but the rest of the program can

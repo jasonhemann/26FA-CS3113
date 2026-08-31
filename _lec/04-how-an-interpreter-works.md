@@ -1,8 +1,8 @@
 ---
 title: "How does an interpreter work?"
-date: 2026-09-14
+order: 4
 permalink: /lec/how-an-interpreter-works/
-published: false
+published: true
 link: https://hemann.pl/how-does-an-interpreter-work/
 redirect_to: https://hemann.pl/how-does-an-interpreter-work/
 excerpt: "Canonical notes on environments, delayed lambda bodies, shadowing, and an interpreter trace."

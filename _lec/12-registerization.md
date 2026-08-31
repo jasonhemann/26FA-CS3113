@@ -1,14 +1,11 @@
 ---
 title: "Registerization"
-date: 2026-10-28
+order: 12
 permalink: /lec/registerization/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished course note. Its explanations and
-> examples are still under review.
 
 The original, general transformation development remains on Jason Hemann's
 site as [Representation Independence Procedure](https://hemann.pl/representation-independence/).

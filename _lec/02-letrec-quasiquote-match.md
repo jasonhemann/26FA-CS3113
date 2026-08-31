@@ -1,14 +1,11 @@
 ---
 title: "letrec, quasiquote, and match"
-date: 2026-09-02
+order: 2
 permalink: /lec/letrec-quasiquote-match/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished lecture-note draft. Its explanations
-> and examples are still under review.
 
 Programming-languages work constantly crosses a boundary between **using**
 Racket syntax and **representing** syntax as data. Quasiquote makes symbolic

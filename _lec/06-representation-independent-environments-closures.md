@@ -1,14 +1,11 @@
 ---
 title: "Representation-independent environments and closures"
-date: 2026-09-21
+order: 6
 permalink: /lec/representation-independent-environments-closures/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished lecture-note draft. Its explanations
-> and examples are still under review.
 
 Our first interpreter represented an environment as a Racket procedure and an
 object-language closure as another Racket procedure. Those choices were

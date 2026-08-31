@@ -1,14 +1,11 @@
 ---
 title: "Continuations and continuation-passing style"
-date: 2026-10-19
+order: 9
 permalink: /lec/continuations-and-cps/
-published: false
+published: true
 toc: true
 toc_sticky: true
 ---
-
-> **Draft status:** This is an unpublished course note. Its explanations and
-> examples are still under review.
 
 A direct-style function returns its answer to its caller. A function in
 **continuation-passing style** (CPS) instead receives an explicit description
