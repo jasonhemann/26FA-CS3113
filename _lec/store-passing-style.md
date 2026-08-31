@@ -1,6 +1,6 @@
 ---
 title: "Store-passing style"
-date: 2026-10-28
+date: 2026-11-16
 permalink: /lec/store-passing-style/
 published: false
 toc: true

@@ -199,21 +199,21 @@ weeks:
       - day: M
         title: "Representation-independent continuations"
         topics:
-          - desc: "Quiz: Assignment 6 verification — continuation-passing style"
           - desc: "Defunctionalizing continuations and introducing apply-k"
           - desc: "Programming against a continuation interface rather than its representation"
         pre_readings: []
         videos: []
         extra_resources: []
       - day: W
-        title: "Store-passing style"
+        title: "Registerization"
         topics:
-          - desc: "Threading an explicit store alongside a computation's value"
-          - desc: "Environments as mappings from variables to locations and stores as mappings from locations to values"
-          - desc: "Interpreting assignment and sequencing without relying on host-language mutation"
+          - desc: "Replacing parameters with registers"
+          - desc: "Program-counter style and the path toward an abstract machine"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          - title: "Historical notes: Representation Independence Procedure"
+            link: "https://hemann.pl/representation-independence/"
 
   - week_offset: 9
     homework:
@@ -222,22 +222,21 @@ weeks:
         starter_code: "hw8"
     sessions:
       - day: M
-        title: "Registerization"
-        topics:
-          - desc: "Quiz: Assignment 7 verification — CPS interpreters and continuation representations"
-          - desc: "Replacing parameters with registers"
-          - desc: "Program-counter style and the path toward an abstract machine"
-        pre_readings: []
-        videos: []
-        extra_resources:
-          - title: "Historical notes: Representation Independence Procedure"
-            link: "https://hemann.pl/representation-independence/"
-      - day: W
         title: "Trampolining"
         topics:
+          - desc: "Quiz: Assignment 6 verification — continuation-passing style"
           - desc: "Trampolines and bounded host-stack use"
           - desc: "Iterative control over registerized procedures"
           - desc: "Assignment 8 emphasizes registerization and finishes with trampolining"
+        pre_readings: []
+        videos: []
+        extra_resources: []
+      - day: W
+        title: "Exam 2 review"
+        topics:
+          - desc: "Quiz: Assignment 7 verification — CPS interpreters and continuation representations"
+          - desc: "Cumulative review with emphasis on parameter passing, CPS, continuation representation, registerization, and trampolining"
+          - desc: "Assignment 9 itself is not on Exam 2"
         pre_readings: []
         videos: []
         extra_resources: []
@@ -260,11 +259,10 @@ weeks:
         videos: []
         extra_resources: []
       - day: W
-        title: "Assignment 9 transformation workshop"
+        title: "Exam 2"
         topics:
-          - desc: "A-normal form, CPS, representation independence, registerization, and trampolining"
-          - desc: "pc2c and the boundary between the Racket and C versions"
-          - desc: "Testing after every semantics-preserving step"
+          - desc: "Individual, closed-resource, and closed-device, in class"
+          - desc: "Cumulative, with emphasis on parameter passing through trampolining; Assignment 9 is not included"
         pre_readings: []
         videos: []
         extra_resources: []
@@ -273,18 +271,19 @@ weeks:
     homework: []
     sessions:
       - day: M
-        title: "Macros and language extension"
+        title: "Store-passing style"
         topics:
-          - desc: "Syntactic abstraction with syntax-rules"
-          - desc: "When a library is not enough: extending a language's grammar"
+          - desc: "Threading an explicit store alongside a computation's value"
+          - desc: "Environments as mappings from variables to locations and stores as mappings from locations to values"
+          - desc: "Interpreting assignment and sequencing without relying on host-language mutation"
         pre_readings: []
         videos: []
         extra_resources: []
       - day: W
-        title: "Exam 2 review"
+        title: "Macros and language extension"
         topics:
-          - desc: "Cumulative review with emphasis on parameter passing, CPS, continuation representation, registerization, and trampolining"
-          - desc: "Assignment 9 itself is not on Exam 2"
+          - desc: "Syntactic abstraction with syntax-rules"
+          - desc: "When a library is not enough: extending a language's grammar"
         pre_readings: []
         videos: []
         extra_resources: []
@@ -293,10 +292,9 @@ weeks:
     homework: []
     sessions:
       - day: M
-        title: "Exam 2"
+        title: "Objects through interpreters"
         topics:
-          - desc: "Individual, closed-resource, and closed-device, in class"
-          - desc: "Cumulative, with emphasis on parameter passing through trampolining"
+          - desc: "Objects, classes, and method dispatch as language features"
         pre_readings: []
         videos: []
         extra_resources: []
@@ -311,17 +309,17 @@ weeks:
     homework: []
     sessions:
       - day: M
-        title: "Objects through interpreters"
+        title: "Types"
         topics:
-          - desc: "Objects, classes, and method dispatch as language features"
+          - desc: "Static semantics and type judgments"
+          - desc: "Typing rules for expressions and functions"
         pre_readings: []
         videos: []
         extra_resources: []
       - day: W
-        title: "Types and type inference"
+        title: "Type inference"
         topics:
           - desc: "Single cumulative paper-quiz makeup window for documented additional absences"
-          - desc: "Static semantics and type judgments"
           - desc: "Constraint generation, unification, and inference"
         pre_readings: []
         videos: []
@@ -343,7 +341,7 @@ weeks:
         title: "Exam 3 review"
         topics:
           - desc: "Cumulative review, including regression from Exams 1 and 2"
-          - desc: "Objects, types, staging, compilers, and language extension"
+          - desc: "ParentheC transformations, store-passing style, objects, types, staging, compilers, and language extension"
         pre_readings: []
         videos: []
         extra_resources: []

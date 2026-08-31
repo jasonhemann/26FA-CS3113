@@ -1,6 +1,6 @@
 ---
 title: "Registerization"
-date: 2026-11-02
+date: 2026-10-28
 permalink: /lec/registerization/
 published: false
 toc: true
