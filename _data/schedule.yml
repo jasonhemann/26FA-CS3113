@@ -193,9 +193,10 @@ weeks:
         videos: []
         extra_resources: []
       - day: W
-        title: "CPS interpreters"
+        title: "Remote class — CPS interpreters"
         link: "/lec/cps-interpreters/"
         topics:
+          - desc: "Class meets remotely, 12:30–1:45 p.m. Eastern; access details in Canvas."
           - desc: "Transforming an evaluator into continuation-passing style"
           - desc: "Simple and serious expressions, administrative bindings, and tail calls"
         pre_readings: []
@@ -209,18 +210,20 @@ weeks:
         starter_code: "hw7"
     sessions:
       - day: M
-        title: "Representation-independent continuations"
+        title: "Remote class — Representation-independent continuations"
         link: "/lec/representation-independent-continuations/"
         topics:
+          - desc: "Class meets remotely, 12:30–1:45 p.m. Eastern; access details in Canvas."
           - desc: "Defunctionalizing continuations and introducing apply-k"
           - desc: "Programming against a continuation interface rather than its representation"
         pre_readings: []
         videos: []
         extra_resources: []
       - day: W
-        title: "Registerization"
+        title: "Remote class — Registerization"
         link: "/lec/registerization/"
         topics:
+          - desc: "Class meets remotely, 12:30–1:45 p.m. Eastern; access details in Canvas."
           - desc: "Replacing parameters with registers"
           - desc: "Program-counter style and the path toward an abstract machine"
         pre_readings: []
