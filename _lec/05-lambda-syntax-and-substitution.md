@@ -1,6 +1,6 @@
 ---
 title: "Lambda syntax and capture-avoiding substitution"
-order: 5
+order: 6
 permalink: /lec/lambda-syntax-and-substitution/
 published: true
 toc: true

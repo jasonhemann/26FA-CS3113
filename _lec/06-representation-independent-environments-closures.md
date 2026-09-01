@@ -1,6 +1,6 @@
 ---
 title: "Representation-independent environments and closures"
-order: 6
+order: 5
 permalink: /lec/representation-independent-environments-closures/
 published: true
 toc: true
