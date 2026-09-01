@@ -13,6 +13,7 @@ weeks:
     sessions:
       - day: M
         title: "Racket, recursion, and higher-order list programming"
+        link: "/lec/racket-recursion-higher-order-lists/"
         topics:
           - desc: "Course orientation and the interpreter-to-compiler arc"
           - desc: "Natural recursion over lists"
@@ -23,6 +24,7 @@ weeks:
         videos: []
       - day: W
         title: "letrec, quasiquote, and match"
+        link: "/lec/letrec-quasiquote-match/"
         topics:
           - desc: "Recursive local bindings"
           - desc: "Quasiquotation and unquotation for constructing syntax"
@@ -45,6 +47,7 @@ weeks:
         extra_resources: []
       - day: W
         title: "Free and bound variables; lexical address"
+        link: "/lec/free-bound-variables-lexical-address/"
         topics:
           - desc: "Quiz: Assignment 1 verification — recursion and higher-order list programming"
           - desc: "Binding structure and variable occurrence"
@@ -62,6 +65,7 @@ weeks:
     sessions:
       - day: M
         title: "Introduction to interpreters"
+        link: "/lec/how-an-interpreter-works/"
         topics:
           - desc: "Quiz: Assignment 2 verification — free variables and lexical address"
           - desc: "A higher-order definitional interpreter for a small functional language"
@@ -71,6 +75,7 @@ weeks:
         extra_resources:
       - day: W
         title: "Shortened class — Finishing representation-independent environments and closures"
+        link: "/lec/representation-independent-environments-closures/"
         topics:
           - desc: "Class meets 1:00-1:45 p.m. after the Mass of the Holy Spirit"
           - desc: "Functional and data-structural representations of environments"
@@ -85,6 +90,7 @@ weeks:
     sessions:
       - day: M
         title: "Lambda-calculus substitution and normalization"
+        link: "/lec/lambda-syntax-and-substitution/"
         topics:
           - desc: "Quiz: Assignment 3 verification — interpreters and representation independence"
           - desc: "Capture-avoiding substitution and alpha-equivalence"
@@ -95,6 +101,7 @@ weeks:
         extra_resources: []
       - day: W
         title: "Lexical and dynamic scope"
+        link: "/lec/lexical-and-dynamic-scope/"
         topics:
           - desc: "Where an interpreter chooses the environment for a procedure body"
           - desc: "Predicting the observable differences between lexical and dynamic binding"
@@ -160,6 +167,7 @@ weeks:
         extra_resources: []
       - day: W
         title: "Lambda calculus and equational reasoning"
+        link: "/lec/lambda-calculus-equational-reasoning/"
         topics:
           - desc: "Alpha, beta, and eta equivalence"
           - desc: "Reduction strategies and equational reasoning"
@@ -176,6 +184,7 @@ weeks:
     sessions:
       - day: M
         title: "Introduction to continuations and CPS"
+        link: "/lec/continuations-and-cps/"
         topics:
           - desc: "Quiz: Assignment 5 verification — parameter-passing conventions"
           - desc: "System continuations, escape, and explicit control"
@@ -185,6 +194,7 @@ weeks:
         extra_resources: []
       - day: W
         title: "CPS interpreters"
+        link: "/lec/cps-interpreters/"
         topics:
           - desc: "Transforming an evaluator into continuation-passing style"
           - desc: "Simple and serious expressions, administrative bindings, and tail calls"
@@ -200,6 +210,7 @@ weeks:
     sessions:
       - day: M
         title: "Representation-independent continuations"
+        link: "/lec/representation-independent-continuations/"
         topics:
           - desc: "Defunctionalizing continuations and introducing apply-k"
           - desc: "Programming against a continuation interface rather than its representation"
@@ -208,6 +219,7 @@ weeks:
         extra_resources: []
       - day: W
         title: "Registerization"
+        link: "/lec/registerization/"
         topics:
           - desc: "Replacing parameters with registers"
           - desc: "Program-counter style and the path toward an abstract machine"
@@ -274,6 +286,7 @@ weeks:
     sessions:
       - day: M
         title: "Store-passing style"
+        link: "/lec/store-passing-style/"
         topics:
           - desc: "Threading an explicit store alongside a computation's value"
           - desc: "Environments as mappings from variables to locations and stores as mappings from locations to values"
