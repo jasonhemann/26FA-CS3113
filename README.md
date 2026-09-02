@@ -13,7 +13,9 @@ For local development and testing, install:
 Optional, only if you need syllabus PDF output:
 
 1. Pandoc
-2. A LaTeX engine (for example MacTeX/TeX Live, used by Pandoc when writing PDF)
+2. LuaLaTeX with the Libertinus fonts (included in a full MacTeX/TeX Live
+   installation; on macOS they are also available from the Homebrew
+   `font-libertinus` cask)
 
 ## Local Setup
 
@@ -77,7 +79,7 @@ If you need PDF output:
 
 ```bash
 ./syllabus_prebuild.rb
-pandoc syllabus_rendered.md -o syllabus.pdf
+pandoc syllabus_rendered.md --pdf-engine=lualatex -o syllabus.pdf
 ```
 
 The prebuild derives Pandoc's scalar `author` and `date` metadata from the

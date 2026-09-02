@@ -11,7 +11,7 @@ fontsize: 11pt
 geometry:
   - margin=1in
 linestretch: 1.15
-mainfont: TeX Gyre Pagella
+mainfont: Libertinus Serif
 colorlinks: true
 ---
 
