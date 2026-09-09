@@ -1,5 +1,5 @@
 ---
-title: "Free and bound variables and lexical address"
+title: "Free and bound references and lexical address"
 order: 3
 permalink: /lec/free-bound-variables-lexical-address/
 published: true
@@ -7,38 +7,24 @@ toc: true
 toc_sticky: true
 ---
 
-Variable names do two jobs in source code. A declaration introduces a name,
-while a reference uses a name. Lexical scope determines which declaration—if
-any—governs each reference. Once that relationship is known, a compiler can
-replace bound names with small numeric addresses.
-
-This note develops that analysis as a recursive program over lambda-calculus
-syntax.
-
 ## Learning objectives
 
-After working through this note, you should be able to:
+- Learn the structure of another recursive datatype: lambda-calculus expressions.
+- Distinguish variable declarations from references.
+- Explain scope and shadowing, and identify free and bound references.
+- Write recursive programs that answer questions about references.
+- Find lexical addresses and recognize expressions that differ only in their bound names.
 
-- distinguish a variable declaration from a variable reference;
-- classify a particular reference as free or bound in an expression;
-- explain scope and shadowing using the nearest enclosing binder;
-- compute free- and bound-occurrence predicates by structural recursion;
-- translate bound references to lexical addresses;
-- use lexical addresses to recognize alpha-equivalent expressions; and
-- state the context invariant maintained by the translation.
-
-## A small language of expressions
-
-We use the untyped lambda calculus as a compact language of binding. It has
-exactly three expression forms:
+## Lambda-calculus expressions as a datatype
 
 ```text
-Expression ::= Variable
-             | (lambda (Variable) Expression)
-             | (Expression Expression)
+      x, y, z ∈ Vars ::= Symbol
+expr, e₁, e₂ ∈ Expr ::= y | (lambda (x) e₁) | (e₁ e₂)
 ```
 
-Examples are represented as quoted Racket data:
+There are three and exactly three forms in the lambda calculus. There are
+many kinds of lambda calculi, but when we discuss *the* lambda calculus,
+this is what we'll mean. We represent variable names with Racket symbols.
 
 ```racket
 'x
@@ -46,444 +32,213 @@ Examples are represented as quoted Racket data:
 '((lambda (x) x) y)
 ```
 
-In `(lambda (x) body)`, `x` is a **declaration** or **binding occurrence**. It
-introduces a name whose scope is `body`. Symbols reached as expression leaves
-are **reference occurrences**. In this expression:
+The grammar tells us where to recur. A symbol has no recursive parts. A
+lambda has one, its body. An application has two, its operator and operand.
+The declaration in `(lambda (x) e₁)` is not a recursive `Expr` position.
+
+You can keep this template in a file. Many of our programs will start with
+something very similar. Fill in the right-hand sides:
+
+```racket
+(define (f expr)
+  (match expr
+    [`,y #:when (symbol? y)         ]
+    [`(lambda (,x) ,body)           ]
+    [`(,rator ,rand)                ]))
+```
+
+### Work together: a bag of declarations
+
+Write `bag-of-declarations`. It takes an expression and returns a bag of
+all the variable declarations in it. A bag keeps duplicates.
+
+```racket
+;; Expr -> Listof Symbol
+(define (bag-of-declarations expr)
+  (match expr
+    [`,y #:when (symbol? y)         ]
+    [`(lambda (,x) ,body)           ]
+    [`(,rator ,rand)                ]))
+```
+
+## Declarations and references
+
+A variable **reference** is a use of a variable. A **declaration** introduces
+a variable as a name for some value. In
 
 ```racket
 '(lambda (x) (x y))
 ```
 
-the symbol in `(x)` is a declaration, while the `x` and `y` in `(x y)` are
-references.
+the `x` in the parameter list is a declaration. The `x` and `y` in the body
+are references. We can reach each reference by structural recursion on
+`Expr`; we don't recur into the parameter list as though it were an
+expression.
 
-The binding position is not itself a recursive `Expression` position in the
-grammar. A syntax traversal records its name and recurs through the body.
+### Work together: is there a reference?
 
-## Scope, binding, and shadowing
+For each row, decide whether the expression contains a reference to the
+given name. Point to the reference if there is one.
 
-The **scope** of a lambda declaration is its body. A reference is governed by
-the nearest enclosing declaration with the same name.
+| Name | Expression | Yes or no? |
+| --- | --- | --- |
+| `z` | `(lambda (z) x)` | |
+| `x` | `x` | |
+| `y` | `(lambda (x) y)` | |
+| `z` | `(lambda (z) (x y))` | |
+| `lambda` | `(lambda (lambda) lambda)` | |
+
+## Scope and shadowing
+
+**Scope is the part of the program where a declaration has meaning.**
+References to that name in its scope refer to that declaration.
+
+A lambda declaration has scope in its body. A nested declaration of the
+same name **shadows** the outer declaration: it makes a hole in the outer
+declaration's scope.
 
 ```racket
 '(lambda (x)
-   ((lambda (x)
-      x)
+   ((lambda (x) x)
     x))
 ```
 
-There are two reference occurrences of `x`:
+The reference inside the inner lambda refers to the inner declaration.
+The final `x` refers to the outer declaration. Inside the inner lambda,
+we can't use `x` to refer to the outer declaration.
 
-- the `x` inside the inner lambda refers to the inner declaration;
-- the final `x`, outside the inner lambda's body, refers to the outer
-  declaration.
+We can find the declaration for a reference without running the program.
+Start at the reference and work outward through the expression to the
+nearest enclosing declaration of that name. This is **lexical scope**.
+The `lambda` is a **binder**: it connects a declaration with its scope.
 
-The inner declaration **shadows** the outer declaration only within its own
-body. Shadowing does not erase or mutate the outer declaration; it makes the
-nearer declaration win for references in a smaller region.
+## Free and bound references
 
-This is a static property. We can determine the governing declaration by
-examining program text, without evaluating the program.
+Free and bound are properties of **references**. A reference is **bound**
+in an expression if it is in the scope of a declaration of that name.
+Otherwise it is **free** in that expression.
 
-## Free and bound are properties of occurrences
+Keep track of which expression we're talking about. The reference in `x`
+is free. That same reference, as the body of `(lambda (x) x)`, is bound in
+the whole lambda expression.
 
-A reference occurrence is **bound** in an expression when it lies in the scope
-of a declaration of the same name. Otherwise, that occurrence is **free** in
-the expression.
+We'll call our two questions `ref-occurs-free` and `ref-occurs-bound`:
+does this expression contain a free reference to `x`, and does it contain
+a bound reference to `x`? These aren't opposites. There can be references
+of both kinds, or no references to that name at all.
 
-Consider:
+### Work together: free or bound?
 
-```racket
-'((lambda (x) x) x)
-```
-
-The first reference to `x` is bound by the lambda. The final reference to `x`
-is free. Thus the name `x` occurs both bound and free in the whole expression.
-It is imprecise to call the name itself simply “a bound variable” or “a free
-variable” without identifying an occurrence or an expression.
-
-Also distinguish “free in this piece of syntax” from “will cause a run-time
-error.” A reference can be free in a subexpression while a larger context or
-an interpreter environment supplies its value.
-
-## Carrying the enclosing binders
-
-To classify a reference during a top-down traversal, carry a list of the names
-bound by enclosing lambdas. Put the nearest binder first:
-
-```text
-context ::= list of enclosing binder names, innermost first
-```
-
-Entering `(lambda (x) body)` adds `x` to the front of the context before
-traversing `body`. At a reference `x`:
-
-- if `x` appears in the context, the occurrence is bound;
-- otherwise, the occurrence is free.
-
-Here are executable occurrence predicates:
+Decide what each call should return before running it. For a bound
+reference, find its declaration. The final `'()` is an accumulator;
+we'll develop that version below.
 
 ```racket
-(define (in-context? x context)
-  (if (memv x context) #t #f))
-
-(define (occurs-free? target expression [context '()])
-  (match expression
-    [(? symbol? x)
-     (and (eqv? x target)
-          (not (in-context? x context)))]
-    [`(lambda (,(? symbol? parameter)) ,body)
-     (occurs-free? target body (cons parameter context))]
-    [`(,operator ,operand)
-     (or (occurs-free? target operator context)
-         (occurs-free? target operand context))]
-    [bad-expression
-     (error 'occurs-free?
-            "not a lambda-calculus expression: ~v"
-            bad-expression)]))
-
-(define (occurs-bound? target expression [context '()])
-  (match expression
-    [(? symbol? x)
-     (and (eqv? x target)
-          (in-context? x context))]
-    [`(lambda (,(? symbol? parameter)) ,body)
-     (occurs-bound? target body (cons parameter context))]
-    [`(,operator ,operand)
-     (or (occurs-bound? target operator context)
-         (occurs-bound? target operand context))]
-    [bad-expression
-     (error 'occurs-bound?
-            "not a lambda-calculus expression: ~v"
-            bad-expression)]))
+(ref-occurs-free 'x 'x '())
+(ref-occurs-free 'y 'x '())
+(ref-occurs-bound 'x 'x '())
+(ref-occurs-bound 'z '(lambda (z) x) '())
+(ref-occurs-bound 'y '(lambda (x) y) '())
+(ref-occurs-bound 'y '(lambda (y) y) '())
+(ref-occurs-free 'x '((lambda (x) x) x) '())
+(ref-occurs-bound 'x '((lambda (x) x) x) '())
+(ref-occurs-free 'z '((lambda (x) x) x) '())
+(ref-occurs-bound 'z '((lambda (x) x) x) '())
 ```
 
-The application case must inspect both operator and operand. The lambda case
-extends the context only for the body.
+## An accumulator version
 
-## Collecting free names
+Carry the names declared by the enclosing lambdas in `acc`, with the
+nearest declaration first. At the start, `acc` is `'()`. When we enter a
+lambda's body, we add its declared name. At a reference, membership in
+`acc` tells us whether that reference is bound.
 
-Sometimes we need the set of names with at least one free occurrence rather
-than a yes-or-no question about one target. The same context invariant gives
-us that analysis:
+Here `x` is the name we're looking for, `expr` is the expression, and `y`
+is the symbol matched at a reference. We use `z` for a lambda's declared
+name so we don't hide the `x` we're looking for.
 
 ```racket
-(define (free-variables expression [context '()])
-  (match expression
-    [(? symbol? x)
-     (if (in-context? x context) '() (list x))]
-    [`(lambda (,(? symbol? parameter)) ,body)
-     (free-variables body (cons parameter context))]
-    [`(,operator ,operand)
-     (remove-duplicates
-      (append (free-variables operator context)
-              (free-variables operand context)))]
-    [bad-expression
-     (error 'free-variables
-            "not a lambda-calculus expression: ~v"
-            bad-expression)]))
+(define (ref-occurs-free x expr acc)
+  (match expr
+    [`,y #:when (symbol? y) (and (eqv? x y) (not (memv y acc)))]
+    [`(lambda (,z) ,body) (ref-occurs-free x body (cons z acc))]
+    [`(,rator ,rand) (or (ref-occurs-free x rator acc) (ref-occurs-free x rand acc))]))
+
+(define (ref-occurs-bound x expr acc)
+  (match expr
+    [`,y #:when (symbol? y) (and (eqv? x y) (if (memv y acc) #t #f))]
+    [`(lambda (,z) ,body) (ref-occurs-bound x body (cons z acc))]
+    [`(,rator ,rand) (or (ref-occurs-bound x rator acc) (ref-occurs-bound x rand acc))]))
 ```
 
-The order of this result is not semantically important; it represents a set.
+`memv` returns either `#f` or a list. The `if` in `ref-occurs-bound` makes
+the result a boolean. In the application clause, both recursive calls
+receive the same `acc`: a declaration inside the operator doesn't bind
+references in the operand.
+
+**We will not accept accumulator solutions for the free/bound-reference
+problems on HW2.** Those problems ask you to work from the recursive
+structure of the expression without carrying enclosing declarations.
+In the starter, the predicates are named `free-reference-occurs?` and
+`bound-reference-occurs?` and each takes two arguments. Keep those names
+and argument lists for your submission. The classroom versions above
+take three arguments, including the explicit accumulator.
+
+The separate `lex` problem on HW2 **does** take an accumulator, initially
+`'()`.
+
+### Collecting names
+
+We can also ask for all the names with free references in an expression,
+or all the names with bound references. Order doesn't matter, but don't
+return the same name twice.
+
+For `((lambda (x) x) x)`, what should each of those lists contain? Use the
+free/bound questions above to explain your answers.
 
 ## From names to lexical addresses
 
-Names make programs readable, but a bound reference can be identified by how
-many enclosing binders we cross to reach its declaration. We use this
-zero-based convention:
+We don't need names to figure out the reference. We could get rid of the
+names; we just need to know where the reference was bound.
 
-- address `0` means the nearest enclosing lambda;
-- address `1` means one lambda farther out;
-- address `2` means two lambdas farther out; and so on.
-
-Free references retain their names. We use explicit tags so a numeric constant
-could never be mistaken for an address:
-
-```text
-Addressed ::= (free Variable)
-            | (bound Natural)
-            | (lambda Addressed)
-            | (Addressed Addressed)
-```
-
-First, find the zero-based position of a name in the context:
-
-```racket
-(define (context-position target context)
-  (let loop ([names context]
-             [position 0])
-    (cond
-      [(empty? names) #f]
-      [(eqv? target (car names)) position]
-      [else (loop (cdr names) (add1 position))])))
-```
-
-Because the nearest binder is first, the first matching position is exactly
-the lexical address. The translation is then grammar-directed:
-
-```racket
-(define (lexical-address expression [context '()])
-  (match expression
-    [(? symbol? x)
-     (define position (context-position x context))
-     (if (number? position)
-         `(bound ,position)
-         `(free ,x))]
-    [`(lambda (,(? symbol? parameter)) ,body)
-     `(lambda ,(lexical-address body (cons parameter context)))]
-    [`(,operator ,operand)
-     `(,(lexical-address operator context)
-       ,(lexical-address operand context))]
-    [bad-expression
-     (error 'lexical-address
-            "not a lambda-calculus expression: ~v"
-            bad-expression)]))
-```
-
-Binder names disappear from the output. All information needed to reconnect a
-bound reference to its declaration remains in its numeric address.
-
-## A complete lexical-address derivation
-
-Translate this expression:
-
-```racket
-'(lambda (x)
-   (lambda (y)
-     (x ((lambda (x) x) y))))
-```
-
-At each reference, record the current innermost-first context:
-
-| Reference occurrence | Context | First matching position |
-| --- | --- | --- |
-| the outer application’s `x` | `(y x)` | `1` |
-| the `x` in the innermost lambda | `(x y x)` | `0` |
-| the final `y` | `(y x)` | `0` |
-
-Removing binder names and replacing the references gives:
-
-```racket
-'(lambda
-   (lambda
-     ((bound 1)
-      ((lambda (bound 0))
-       (bound 0)))))
-```
-
-The repeated name `x` causes no ambiguity. The innermost reference has address
-`0`, so it reaches the new `x` declaration immediately. The earlier reference
-has address `1`, so it crosses the `y` binder to reach the outer `x`.
-
-The translation's central invariant is:
-
-> When translating a subexpression, `context` lists exactly its enclosing
-> lambda declarations from nearest to farthest. Therefore the first occurrence
-> of a name in `context` identifies that reference's governing declaration.
-
-## Alpha-equivalence
-
-Changing a binder's name, together with the references it binds, should not
-change the expression's binding structure:
+Consider these expressions from our work-together exercise:
 
 ```racket
 '(lambda (x) (lambda (y) x))
 '(lambda (p) (lambda (q) p))
+'(lambda (z) (lambda (w) w))
 ```
 
-Both translate to:
+In what sense are the first two the same, and different from the third?
+Which declaration does the reference use in each one?
+
+The first two are **alpha-equivalent**: changing the bound names hasn't
+changed which declaration the reference refers to.
+
+A **lexical address**, or **de Bruijn index**, counts outward from a
+reference to its declaration. The nearest enclosing lambda is `0`, the
+next is `1`, and so on. Count every enclosing lambda, regardless of its
+declared name.
+
+We write a reference with address `0` as `(var 0)`, and one with address
+`1` as `(var 1)`. The `var` tag distinguishes a reference from a natural
+number; when we include numbers in a language, the numbers themselves
+stay untagged. We remove the declared name from each lambda.
+
+### Work together: remove the names
+
+Translate the three expressions above by hand. Then try:
 
 ```racket
-'(lambda (lambda (bound 1)))
+'(lambda (y) (lambda (x) (x y)))
+'(lambda (x) ((lambda (x) x) x))
 ```
 
-They are **alpha-equivalent**. This expression is different:
+For each reference, point to its declaration and count how far away it is.
+Do the first two expressions from the earlier exercise have the same
+translation? What happens at the shadowed reference in the last example?
 
-```racket
-'(lambda (x) (lambda (y) y))
-```
-
-because its body becomes `(bound 0)`, not `(bound 1)`.
-
-For this language, with free names preserved, alpha-equivalence can be tested
-by comparing lexical-address translations:
-
-```racket
-(define (alpha-equivalent? left right)
-  (equal? (lexical-address left)
-          (lexical-address right)))
-```
-
-## One runnable development
-
-```racket
-#lang racket
-
-(define (in-context? x context)
-  (if (memv x context) #t #f))
-
-(define (occurs-free? target expression [context '()])
-  (match expression
-    [(? symbol? x)
-     (and (eqv? x target)
-          (not (in-context? x context)))]
-    [`(lambda (,(? symbol? parameter)) ,body)
-     (occurs-free? target body (cons parameter context))]
-    [`(,operator ,operand)
-     (or (occurs-free? target operator context)
-         (occurs-free? target operand context))]
-    [bad-expression
-     (error 'occurs-free? "not an expression: ~v" bad-expression)]))
-
-(define (occurs-bound? target expression [context '()])
-  (match expression
-    [(? symbol? x)
-     (and (eqv? x target)
-          (in-context? x context))]
-    [`(lambda (,(? symbol? parameter)) ,body)
-     (occurs-bound? target body (cons parameter context))]
-    [`(,operator ,operand)
-     (or (occurs-bound? target operator context)
-         (occurs-bound? target operand context))]
-    [bad-expression
-     (error 'occurs-bound? "not an expression: ~v" bad-expression)]))
-
-(define (free-variables expression [context '()])
-  (match expression
-    [(? symbol? x)
-     (if (in-context? x context) '() (list x))]
-    [`(lambda (,(? symbol? parameter)) ,body)
-     (free-variables body (cons parameter context))]
-    [`(,operator ,operand)
-     (remove-duplicates
-      (append (free-variables operator context)
-              (free-variables operand context)))]
-    [bad-expression
-     (error 'free-variables "not an expression: ~v" bad-expression)]))
-
-(define (context-position target context)
-  (let loop ([names context]
-             [position 0])
-    (cond
-      [(empty? names) #f]
-      [(eqv? target (car names)) position]
-      [else (loop (cdr names) (add1 position))])))
-
-(define (lexical-address expression [context '()])
-  (match expression
-    [(? symbol? x)
-     (define position (context-position x context))
-     (if (number? position)
-         `(bound ,position)
-         `(free ,x))]
-    [`(lambda (,(? symbol? parameter)) ,body)
-     `(lambda ,(lexical-address body (cons parameter context)))]
-    [`(,operator ,operand)
-     `(,(lexical-address operator context)
-       ,(lexical-address operand context))]
-    [bad-expression
-     (error 'lexical-address "not an expression: ~v" bad-expression)]))
-
-(define (alpha-equivalent? left right)
-  (equal? (lexical-address left)
-          (lexical-address right)))
-
-(module+ test
-  (require rackunit)
-
-  (define mixed '((lambda (x) x) x))
-  (check-true (occurs-bound? 'x mixed))
-  (check-true (occurs-free? 'x mixed))
-  (check-equal?
-   (free-variables '(lambda (x) ((f x) y)))
-   '(f y))
-  (check-equal?
-   (lexical-address
-    '(lambda (x) (lambda (y) (x ((lambda (x) x) y)))))
-   '(lambda
-      (lambda
-        ((bound 1)
-         ((lambda (bound 0))
-          (bound 0))))))
-  (check-true
-   (alpha-equivalent?
-    '(lambda (x) (lambda (y) x))
-    '(lambda (p) (lambda (q) p))))
-  (check-false
-   (alpha-equivalent?
-    '(lambda (x) (lambda (y) x))
-    '(lambda (x) (lambda (y) y)))))
-```
-
-## The central distinctions
-
-| Concept | Meaning |
-| --- | --- |
-| Declaration | A binder that introduces a name |
-| Reference | An expression occurrence that uses a name |
-| Scope | The syntax region governed by a declaration |
-| Free occurrence | A reference with no same-named enclosing binder |
-| Bound occurrence | A reference governed by a same-named enclosing binder |
-| Lexical address | The static distance to that governing binder |
-
-A lexical address records binding structure, not a run-time value and not the
-number of procedure calls made during evaluation.
-
-## Supervised practice
-
-For each expression, draw arrows from bound references to declarations before
-writing any code.
-
-1. Classify every reference occurrence in
-   `'((lambda (x) (x z)) (lambda (z) x))` as free or bound.
-2. In `'(lambda (x) ((lambda (x) (x y)) x))`, explain which declaration
-   governs each `x` reference.
-3. Translate `'(lambda (a) (lambda (b) (b (a c))))` using this note's lexical
-   address representation.
-4. Invent an alpha-equivalent renaming of that expression and verify that its
-   translation is unchanged.
-5. Write `bound-variables`, returning the names with at least one bound
-   reference occurrence. State whether declaration names with no references
-   should appear in your result.
-6. Change the context convention so the outermost binder comes first. What
-   must change in the address calculation?
-
-## Common mistakes
-
-- **Classifying a name rather than an occurrence.** One name can occur both
-  free and bound in one expression.
-- **Counting declarations as references.** The parameter in `(lambda (x) e)`
-  is a binder; only occurrences reached inside expression positions are
-  references.
-- **Extending scope outside the body.** A lambda's declaration governs its
-  body, not a neighboring operator or operand.
-- **Ignoring shadowing.** The nearest same-named binder wins, so context search
-  must stop at its first match.
-- **Treating every nonmatching name as bound elsewhere.** If no enclosing
-  binder matches, that occurrence is free in the expression.
-- **Dropping free names from lexical form.** Bound names are recoverable from
-  addresses; distinct free names must remain distinguishable.
-- **Using run-time call depth as an address.** A lexical address comes from
-  static syntactic nesting.
-
-## Summary
-
-- Lambda parameters are declarations; variable expressions are references.
-- Lexical scope connects a reference to its nearest same-named enclosing
-  declaration.
-- A reference with such a declaration is bound; otherwise it is free.
-- A traversal can maintain an innermost-first context of enclosing binders.
-- A bound reference's position in that context is its lexical address.
-- Alpha-equivalent expressions have the same binding structure and therefore
-  the same lexical-address representation.
-
-## Self-check questions
-
-1. Which part of `(lambda (x) body)` is the scope of the declaration `x`?
-2. Can a name occur both free and bound in one expression? Give the shape of an
-   example.
-3. Why is the binder context ordered from innermost to outermost?
-4. What does address `0` mean under this note's convention?
-5. Why do free references retain names in the translated representation?
-6. How does shadowing appear in a context that contains the same name twice?
-7. Why does lexical-address equality characterize alpha-equivalence here?
+For the HW2 `lex` problem, all references have declarations in the input
+expression. Work out the addresses on paper first. Then think about what
+information you need to carry so that, when you reach a reference, you
+can find its address without going back up the expression.
