@@ -192,17 +192,17 @@ one-element list, so the more specific one-element pattern appears first.
 ### Guarding atomic patterns
 
 Symbolic languages often distinguish atomic symbols from structured lists.
-Use a predicate pattern for an atomic case:
+Bind the input with a quasiquote pattern and use a guard for the symbol case:
 
 ```racket
 (match value
-  [(? symbol? x) `(the-symbol-is ,x)]
+  [`,y #:when (symbol? y) `(the-symbol-is ,y)]
   [_ 'not-a-symbol])
 ```
 
-The pattern `(? symbol? x)` succeeds only when `symbol?` accepts the input and
-binds `x` to that input. The wildcard `_` matches anything without binding a
-name.
+The pattern `` `,y `` binds `y` to the input. The guard `#:when (symbol? y)`
+allows this clause to succeed only when that input is a symbol. The wildcard
+`_` matches anything without binding a name.
 
 ## A grammar-directed function
 
@@ -220,43 +220,37 @@ cases. Here is one that measures maximum syntactic nesting:
 ```racket
 (define (expression-depth expression)
   (match expression
-    [(? symbol?)
-     0]
-    [`(lambda (,(? symbol? _parameter)) ,body)
-     (add1 (expression-depth body))]
-    [`(,operator ,operand)
-     (add1 (max (expression-depth operator)
-                (expression-depth operand)))]
-    [bad-expression
-     (error 'expression-depth
-            "not a lambda-calculus expression: ~v"
-            bad-expression)]))
+    [`,y #:when (symbol? y) 0]
+    [`(lambda (,x) ,body) (add1 (expression-depth body))]
+    [`(,operator ,operand) (add1 (max (expression-depth operator) (expression-depth operand)))]))
 ```
 
-The error case is not part of the language's grammar. It makes the Racket
-function reject malformed input instead of failing later with a mysterious
-message.
+Each input is a valid expression from the grammar, so these three clauses
+cover the inputs we use.
 
 ### Worked derivation
 
 Trace this input:
 
 ```racket
-(expression-depth
- '(lambda (x)
-    ((lambda (y) y) x)))
+(expression-depth '(lambda (x) ((lambda (y) y) x)))
 ```
 
 The outer input matches the lambda pattern, so its answer is one plus the
 depth of its body:
 
-```text
-depth(lambda x. ((lambda y. y) x))
-= 1 + depth(((lambda y. y) x))
-= 1 + (1 + max(depth(lambda y. y), depth(x)))
-= 1 + (1 + max(1 + depth(y), 0))
-= 1 + (1 + max(1, 0))
-= 3
+```racket
+(expression-depth '(lambda (x) ((lambda (y) y) x)))
+;; =>
+(add1 (expression-depth '((lambda (y) y) x)))
+;; =>
+(add1 (add1 (max (expression-depth '(lambda (y) y)) (expression-depth 'x))))
+;; =>
+(add1 (add1 (max (add1 (expression-depth 'y)) 0)))
+;; =>
+(add1 (add1 (max 1 0)))
+;; =>
+3
 ```
 
 The recursive invariant is:
@@ -275,10 +269,8 @@ This list example shows both directions without changing languages:
 ```racket
 (define (stutter xs)
   (match xs
-    ['()
-     '()]
-    [`(,first . ,rest)
-     `(,first ,first ,@(stutter rest))]))
+    ['() '()]
+    [`(,first . ,rest) `(,first ,first ,@(stutter rest))]))
 ```
 
 For `(stutter '(a b))`, the recursive development is:
@@ -322,21 +314,13 @@ already-stuttered tail into the new result.
 (define (stutter xs)
   (match xs
     ['() '()]
-    [`(,first . ,rest)
-     `(,first ,first ,@(stutter rest))]))
+    [`(,first . ,rest) `(,first ,first ,@(stutter rest))]))
 
 (define (expression-depth expression)
   (match expression
-    [(? symbol?) 0]
-    [`(lambda (,(? symbol? _parameter)) ,body)
-     (add1 (expression-depth body))]
-    [`(,operator ,operand)
-     (add1 (max (expression-depth operator)
-                (expression-depth operand)))]
-    [bad-expression
-     (error 'expression-depth
-            "not a lambda-calculus expression: ~v"
-            bad-expression)]))
+    [`,y #:when (symbol? y) 0]
+    [`(lambda (,x) ,body) (add1 (expression-depth body))]
+    [`(,operator ,operand) (add1 (max (expression-depth operator) (expression-depth operand)))]))
 
 (module+ test
   (require rackunit)
@@ -348,83 +332,11 @@ already-stuttered tail into the new result.
   (check-equal? (expression-depth 'x) 0)
   (check-equal?
    (expression-depth '(lambda (x) ((lambda (y) y) x)))
-   3)
-  (check-exn
-   #rx"not a lambda-calculus expression"
-   (lambda () (expression-depth 17))))
+   3))
 ```
 
 ## The central distinctions
 
-| Form | Primary job | What is active inside? |
-| --- | --- | --- |
-| `let` | Introduce nonrecursive local bindings | Names are in scope only in the body |
-| `letrec` | Introduce recursive local bindings | Scope includes every RHS and the body; early reads fail |
-| quote `'...` | Construct entirely literal data | Nothing is evaluated |
-| quasiquote `` `... `` | Construct mostly literal data | Unquoted holes are evaluated |
-| `match` | Deconstruct data by shape | Pattern variables receive matched pieces |
-
 Quasiquote in a result expression and quasiquote in a `match` pattern use
 similar notation for complementary purposes: one builds a shape, while the
 other recognizes a shape and names its parts.
-
-## Supervised practice
-
-Work in pairs and write the result of each match or template before running
-Racket.
-
-1. Construct `'(if (zero? n) 0 (sub1 n))` with quasiquote, taking the variable
-   name from a Racket binding.
-2. Given `pieces` equal to `'((f x) (g y))`, construct
-   `'(begin (f x) (g y) done)` using unquote-splicing.
-3. Define `last-item` with `match`. Give separate patterns for a one-element
-   list and a list with at least two elements.
-4. Write `application-count`, which counts only application nodes in a valid
-   lambda-calculus expression.
-5. Define mutually recursive `even-length?` and `odd-length?` helpers over
-   lists inside one `letrec`.
-6. For each recursive definition, state the invariant and identify the input
-   that becomes structurally smaller.
-
-## Common mistakes
-
-- **Expecting a `let` name to be visible in its own right-hand side.** Its scope
-  begins in the body.
-- **Using `letrec` to force an already-needed value.** Recursive procedure
-  bindings work smoothly because lambda bodies are delayed.
-- **Forgetting that quote produces data.** `'(+ 1 2)` is a list, not the number
-  `3`.
-- **Putting a comma outside quasiquote.** Unquote has meaning only within an
-  enclosing quasiquote.
-- **Confusing `,x` with `,@x`.** The first inserts one value; the second splices
-  the elements of a list.
-- **Treating a pattern variable as a literal.** In a quasiquote pattern, `,x`
-  binds a piece of the input; the literal symbol `x` must remain quoted in the
-  pattern.
-- **Writing patterns in the wrong order.** An earlier general pattern can make
-  a later specific case unreachable.
-- **Recursing on binding positions.** In `(lambda (x) body)`, `body` is the
-  recursive expression position; the declaration `x` is a symbol to record,
-  not a subexpression to traverse.
-
-## Summary
-
-- `let` introduces local bindings whose names are available in its body.
-- `letrec` supports local and mutually recursive procedures.
-- Quote constructs wholly literal data; quasiquote permits evaluated holes.
-- Unquote-splicing inserts all elements of a computed list.
-- `match` makes the structural alternatives in a data definition explicit.
-- Grammar-directed programs have one successful pattern for each grammar form
-  and recurse only on that form's subexpressions.
-- The same quasiquote notation helps us recognize and rebuild symbolic syntax.
-
-## Self-check questions
-
-1. Why does the factorial definition fail under `let` but succeed under
-   `letrec`?
-2. What does a lambda on the right-hand side of `letrec` delay?
-3. What values do quote and quasiquote produce?
-4. How do unquote and unquote-splicing differ?
-5. What does `(? symbol? x)` test, and what does it bind?
-6. Why should a one-element-list pattern precede a general pair pattern?
-7. How does the grammar tell us where `expression-depth` should recur?

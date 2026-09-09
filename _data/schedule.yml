@@ -22,6 +22,22 @@ weeks:
           - title: "Course syllabus"
             link: "../syllabus/"
         videos: []
+        extra_resources:
+          # SU22 optional material, schedule.md:10; also the schedule linked by SU24.
+          - title: "Scheme and the Art of Programming, chapters 1–2"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/SAOP%20Ch1-Ch2.pdf"
+          # SU22 optional material, schedule.md:10; also the schedule linked by SU24.
+          - title: "Scheme and the Art of Programming, chapter 4"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/SAOP%20Ch4.pdf"
+          # SU22 optional material, schedule.md:17; also the schedule linked by SU24.
+          - title: "Scheme and the Art of Programming, chapter 7"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/SAOP%20Ch7.pdf"
+          # SU22 optional material, schedule.md:17; also the schedule linked by SU24.
+          - title: "ack.rkt"
+            link: "https://hemann.pl/22SU-CS4400/assets/code/ack.rkt"
+          # SU22 optional material, schedule.md:17; also the schedule linked by SU24.
+          - title: "ack-etc.rkt"
+            link: "https://hemann.pl/22SU-CS4400/assets/code/ack-etc.rkt"
       - day: W
         title: "letrec, quasiquote, and match"
         link: "/lec/letrec-quasiquote-match/"
@@ -31,7 +47,10 @@ weeks:
           - desc: "Structural pattern matching over Racket data"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:11; also the schedule linked by SU24.
+          - title: "Scheme and the Art of Programming, sections 5.1–5.2"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/SAOP%20Ch5.1-5.2.pdf"
 
   - week_offset: 1
     homework:
@@ -55,7 +74,10 @@ weeks:
           - desc: "Lexical addressing as a structurally recursive syntax transformation"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:12; also the schedule linked by SU24.
+          - title: "Wand's notes: Lexical Addressing, sections 4.1–4.2"
+            link: "https://www.khoury.northeastern.edu/home/lieber/courses/csg111/f07/lectures-distribute/oct2/lecture04.pdf"
 
   - week_offset: 2
     homework:
@@ -73,6 +95,8 @@ weeks:
         pre_readings: []
         videos: []
         extra_resources:
+          # SU22 optional material, schedule.md:13; also the schedule linked by SU24.
+          - title: "Essentials of Programming Languages, chapters 2–3"
       - day: W
         title: "Shortened class — Finishing representation-independent environments and closures"
         link: "/lec/representation-independent-environments-closures/"
@@ -83,7 +107,13 @@ weeks:
           - desc: "Programming against interfaces rather than representations"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:14; also the schedule linked by SU24.
+          - title: "in-class RI Notes"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/Representation-Independence.pdf"
+          # SU22 optional material, schedule.md:14; also the schedule linked by SU24.
+          - title: "RI Interpreter"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/ri_interpreter-3-webyrd.pdf"
 
   - week_offset: 3
     homework: []
@@ -98,7 +128,10 @@ weeks:
           - desc: "Normalization by evaluation (NbE)"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:15; also the schedule linked by SU24.
+          - title: "Types and Programming Languages, section 5.2"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/TAPL-5.2.pdf"
       - day: W
         title: "Lexical and dynamic scope"
         link: "/lec/lexical-and-dynamic-scope/"
@@ -107,7 +140,10 @@ weeks:
           - desc: "Predicting the observable differences between lexical and dynamic binding"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:16; also the schedule linked by SU24.
+          - title: "Wand's notes: Lexical Addressing, revisit section 4.1"
+            link: "https://www.khoury.northeastern.edu/home/lieber/courses/csg111/f07/lectures-distribute/oct2/lecture04.pdf"
 
   - week_offset: 4
     homework:
@@ -122,7 +158,18 @@ weeks:
           - desc: "Boxes, mutation, thunks, and memoization"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:18; also the schedule linked by SU24.
+          - title: "Essentials of Programming Languages, section 4.5"
+          # SU22 optional material, schedule.md:18; also the schedule linked by SU24.
+          - title: "call-by notes"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/call-by.pdf"
+          # SU22 optional material, schedule.md:18; also the schedule linked by SU24.
+          - title: "in-class REPL"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/call-by-REPL.txt"
+          # SU22 optional material, schedule.md:18; also the schedule linked by SU24.
+          - title: "in-class notes"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/Parameter-passing_conventions.pdf"
       - day: W
         title: "Parameter-passing interpreter workshop"
         topics:
@@ -191,7 +238,18 @@ weeks:
           - desc: "Systematic continuation-passing-style transformation"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:19; also the schedule linked by SU24.
+          - title: "Scheme and the Art of Programming, chapters 16–17"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/SAOP%20Ch16-Ch17.pdf"
+          # SU22 optional material, schedule.md:19; also the schedule linked by SU24.
+          - title: "Essentials of Programming Languages, 6.1–6.3, 4.2"
+          # SU22 optional material, schedule.md:19; also the schedule linked by SU24.
+          - title: "cps notes"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/cps-notes.rkt"
+          # SU22 optional material, schedule.md:19; also the schedule linked by SU24.
+          - title: "cps lecture"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/cpslecture.rkt"
       - day: W
         title: "Remote class — CPS interpreters"
         link: "/lec/cps-interpreters/"
@@ -201,7 +259,9 @@ weeks:
           - desc: "Simple and serious expressions, administrative bindings, and tail calls"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:24; also the schedule linked by SU24.
+          - title: "Essentials of Programming Languages, section 5.1"
 
   - week_offset: 8
     homework:
@@ -218,7 +278,13 @@ weeks:
           - desc: "Programming against a continuation interface rather than its representation"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:25; also the schedule linked by SU24.
+          - title: "ri-k"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/ri-k.txt"
+          # SU22 optional material, schedule.md:25; also the schedule linked by SU24.
+          - title: "how to ri k"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/ri-k-method.rkt"
       - day: W
         title: "Remote class — Registerization"
         link: "/lec/registerization/"
@@ -231,6 +297,11 @@ weeks:
         extra_resources:
           - title: "Historical notes: Representation Independence Procedure"
             link: "https://hemann.pl/representation-independence/"
+          # SU22 optional material, schedule.md:26; also the schedule linked by SU24.
+          - title: "Essentials of Programming Languages, sections 5.2–5.3"
+          # SU22 optional material, schedule.md:26; also the schedule linked by SU24.
+          - title: "registerization notes"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/new-registerization-notes.txt"
 
   - week_offset: 9
     homework:
@@ -247,7 +318,10 @@ weeks:
           - desc: "Assignment 8 emphasizes registerization and finishes with trampolining"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:26; also the schedule linked by SU24.
+          - title: "reg and tramp"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/reg-tramp.pdf"
       - day: W
         title: "Exam 2 review"
         topics:
@@ -274,7 +348,19 @@ weeks:
           - desc: "Assignment 9 deadline: Sunday, November 29, at 10 p.m. Eastern"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:28; also the schedule linked by SU24.
+          - title: "ParentheC"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/parenthec.pdf"
+          # SU22 optional material, schedule.md:28; also the schedule linked by SU24.
+          - title: "pc2c.rkt"
+            link: "https://hemann.pl/22SU-CS4400/assets/code/pc2c.rkt"
+          # SU22 optional material, schedule.md:28; also the schedule linked by SU24.
+          - title: "parenthec.rkt"
+            link: "https://hemann.pl/22SU-CS4400/assets/code/parenthec.rkt"
+          # SU22 optional material, schedule.md:28; also the schedule linked by SU24.
+          - title: "xform code"
+            link: "https://hemann.pl/22SU-CS4400/assets/code/fib-xform.tar.gz"
       - day: W
         title: "Exam 2"
         topics:
@@ -304,7 +390,16 @@ weeks:
           - desc: "When a library is not enough: extending a language's grammar"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:27; also the schedule linked by SU24.
+          - title: "Scheme and the Art of Programming, chapter 14"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/SAOP%20Ch14.pdf"
+          # SU22 optional material, schedule.md:27; also the schedule linked by SU24.
+          - title: "Syntax-rules for the Merely Eccentric"
+            link: "http://www.phyast.pitt.edu/~micheles/syntax-rules.pdf"
+          # SU22 optional material, schedule.md:27; also the schedule linked by SU24.
+          - title: "class-macros"
+            link: "https://hemann.pl/22SU-CS4400/assets/code/class-macros.rkt"
 
   - week_offset: 12
     homework: []
@@ -315,7 +410,10 @@ weeks:
           - desc: "Objects, classes, and method dispatch as language features"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:31; also the schedule linked by SU24.
+          - title: "Scheme and the Art of Programming, chapter 12"
+            link: "https://hemann.pl/22SU-CS4400/assets/docs/SAOP%20Ch12.pdf"
       - day: W
         title: "No class — Thanksgiving recess"
         topics: []
@@ -333,7 +431,10 @@ weeks:
           - desc: "Typing rules for expressions and functions"
         pre_readings: []
         videos: []
-        extra_resources: []
+        extra_resources:
+          # SU22 optional material, schedule.md:32; also the schedule linked by SU24.
+          - title: "Pfenning's notes on CH"
+            link: "https://www.cs.cmu.edu/~fp/courses/15312-f04/handouts/23-curryhoward.pdf"
       - day: W
         title: "Type inference"
         topics:
