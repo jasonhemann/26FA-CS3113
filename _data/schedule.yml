@@ -122,7 +122,6 @@ weeks:
         title: "Lambda-calculus substitution and normalization"
         link: "/lec/lambda-syntax-and-substitution/"
         topics:
-          - desc: "Quiz: Assignment 3 verification — interpreters and representation independence"
           - desc: "Capture-avoiding substitution and alpha-equivalence"
           - desc: "Alpha-, beta-, and eta-normalization"
           - desc: "Normalization by evaluation (NbE)"
@@ -136,6 +135,7 @@ weeks:
         title: "Lexical and dynamic scope"
         link: "/lec/lexical-and-dynamic-scope/"
         topics:
+          - desc: "Quiz: Assignment 3 verification — interpreters and representation independence"
           - desc: "Where an interpreter chooses the environment for a procedure body"
           - desc: "Predicting the observable differences between lexical and dynamic binding"
         pre_readings: []
