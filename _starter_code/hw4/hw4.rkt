@@ -331,6 +331,7 @@ answers.
 
 |#
 
+#|
 (define (make-plus ne1 ne2)
   (lambda (env)
     (+ (valof ne1 env) (valof ne2 env))))
@@ -345,7 +346,7 @@ answers.
 
 (define (make-sym s)
   (lambda (env)
-    (apply-env env y)))
+    (apply-env env s)))
 
 (define (make-num n)
   (lambda (env)
@@ -369,12 +370,13 @@ are orthogonal choices.
        (valof (lambda (env)
                 (make-closure 'x
                               (lambda (env)
-                                (make-closure 'y (make-symbol 'x) env))
+                                (make-closure 'y (make-sym 'x) env))
                               env))
               env)
        (valof (lambda (env) '5) env)))
     env)
    (valof (lambda (env) '6) env)))
+|#
 
 #|
 
