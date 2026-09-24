@@ -61,20 +61,36 @@ announced.
 A great regular way to reach out for help is via our [office
 hours]({{ site.baseurl }}/office-hours/).
 
+## Where to Find Things
+
+Use these links to find assignment and assessment information.
+
+| Looking for                                                            | Where to go                                                                                                                            |
+|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Assignment releases, quiz dates, and exam dates                        | [Schedule]({{ site.baseurl }}/schedule/).                                                                                              |
+| Homework problems, starter files, and assignment-specific instructions | **Assignment** link under [Schedule]({{ site.baseurl }}/schedule/) Read the instructions in the files, including comments.             |
+| Exact homework due dates                                               | Assignment in [Canvas → Assignments](https://setonhall.instructure.com/courses/53793/assignments) or Gradescope directly.              |
+| Submitting homework and checking automated results                     | [Canvas → Assignments](https://setonhall.instructure.com/courses/53793/assignments) > **Load … in a new window** to get to Gradescope. |
+| Posted course grades                                                   | [Canvas → Grades](https://setonhall.instructure.com/courses/53793/grades).                                                             |
+| General homework expectations                                          | The [Assignment Guidelines]({{ site.baseurl }}/hw/#assignment-guidelines) on the Homework page.                                        |
+| Code-review preparation and what to expect                             | The [code-review page]({{ site.baseurl }}/viva/).                                                                                      |
+| Assignment-specific review requirements, deadlines, and booking links  | The released assignment's instructions. Follow calendar booking link for appointment availability.                                     |
+|                                                                        |                                                                                                                                        |
+
 ## Grade Breakdown
 
 I will assign overall course grades as follows.
 
-| Component | Weight |
-|---|---:|
-| Exam 1 | 15% |
-| Exam 2 | 15% |
-| Exam 3 | 15% |
-| Closed-resource paper verification quizzes (best seven of eight) | 25% |
-| Assignment artifacts (Assignments 1-9; 2% each) | 18% |
-| Assignment 3 code review | 4% |
-| Assignment 9 code review | 8% |
-| **Total** | **100%** |
+| Component                                             |   Weight |
+|-------------------------------------------------------|---------:|
+| Exam 1                                                |      15% |
+| Exam 2                                                |      15% |
+| Exam 3                                                |      15% |
+| Closed-resource paper verification quizzes (best 7/8) |      25% |
+| Assignment artifacts (Assignments 1-9; 2% each)       |      18% |
+| Assignment 3 code review                              |       4% |
+| Assignment 9 code review                              |       8% |
+| **Total**                                             | **100%** |
 
 Homework is indispensable practice, but unsupervised programming alone no
 longer provides sufficiently reliable evidence of individual mastery. Each
@@ -88,20 +104,20 @@ Assignment 9 review carries more weight than the earlier Assignment 3 review.
 Course totals are converted using Seton Hall's default Canvas grading scheme.
 An exact cutoff belongs to the grade beginning at that cutoff.
 
-| Letter grade | Course total |
-|---|---:|
-| A | 94% or higher |
-| A− | at least 90% and below 94% |
-| B+ | at least 87% and below 90% |
-| B | at least 84% and below 87% |
-| B− | at least 80% and below 84% |
-| C+ | at least 77% and below 80% |
-| C | at least 74% and below 77% |
-| C− | at least 70% and below 74% |
-| D+ | at least 67% and below 70% |
-| D | at least 64% and below 67% |
-| D− | at least 61% and below 64% |
-| F | below 61% |
+| Letter grade |               Course total |
+|--------------|---------------------------:|
+| A            |              94% or higher |
+| A−           | at least 90% and below 94% |
+| B+           | at least 87% and below 90% |
+| B            | at least 84% and below 87% |
+| B−           | at least 80% and below 84% |
+| C+           | at least 77% and below 80% |
+| C            | at least 74% and below 77% |
+| C−           | at least 70% and below 74% |
+| D+           | at least 67% and below 70% |
+| D            | at least 64% and below 67% |
+| D−           | at least 61% and below 64% |
+| F            |                  below 61% |
 
 ## Participation
 
