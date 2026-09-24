@@ -214,14 +214,17 @@ required to do so.
 |#
 
 ;; 3. Define and test a procedure walk-cps that is a CPSed version of
-;; your corrected walk-symbol procedure from Assignment 2.
+;; the following walk procedure:
 
-;; Bring your corrected walk-symbol solution from Assignment 2, rename it
-;; walk, and use that direct-style program as the source for this
-;; transformation. The starter remains loadable before you paste it.
-
-(define (walk v ls)
-  (error 'walk "paste your corrected Assignment 2 solution here"))
+(define walk
+  (λ (v ls)
+    (cond
+      [(symbol? v)
+       (let ((p (assv v ls)))
+         (cond
+           [p (walk (cdr p) ls)]
+           [else v]))]
+      [else v])))
 
 ;; Here are some sample calls to walk:
 
@@ -355,15 +358,17 @@ s
   (error 'ack-cps "not implemented"))
 
 ;; 10. Define and test a procedure fib-cps that is a CPSed version of
-;; your corrected fib procedure from Assignment 1.
+;; the following fib procedure:
 
-;; Bring your corrected fib solution from Assignment 1 and use it as
-;; the direct-style source for this transformation. The starter remains
-;; loadable before you paste it.
 
-(define (fib n)
-  (error 'fib "paste your corrected Assignment 1 solution here"))
-
+(define fib
+  (λ (n)
+    ((λ (fib)
+       (fib fib n))
+     (λ (fib n)
+       (cond
+         [(< n 2) n]
+         [else (+ (fib fib (sub1 n)) (fib fib (sub1 (sub1 n))))])))))
 
 (define (fib-cps n k)
   (error 'fib-cps "not implemented"))
@@ -476,34 +481,30 @@ s
   (error 'unify-cps "not implemented"))
 
 ;; 14. Define and test a procedure M-cps that is a CPSed version of M,
-;; a curried version of your corrected map solution from Assignment 1.
-;; Bring that solution forward, curry it as M, and use it as the
-;; direct-style source for this transformation. Assume for the CPSed
-;; version that any f passed in will also be CPSed. The starter remains
-;; loadable before you paste your earlier work.
+;; which is a curried version of map. Assume for the CPSed version
+;; that any f passed in will also be CPSed.
 
-(define (M f)
-  (error 'M "paste your corrected Assignment 1 map solution here"))
-
+(define M
+  (λ (f)
+    (λ (ls)
+      (cond
+        ((empty? ls) '())
+        (else (cons (f (car ls)) ((M f) (cdr ls))))))))
 
 (define (M-cps f k)
   (error 'M-cps "not implemented"))
 
 ;; 15. Consider the corresponding call to M, called use-of-M. Using
-;; your CPSed M-cps, rewrite use-of-M as use-of-M-cps, including CPSing
-;; the argument. Gradescope expects use-of-M-cps to be a procedure of
-;; one argument: the continuation to which the final list is sent.
-
-#| Direct-style source expression:
+;; your CPSed M-cps, re-write use-of-M to call M-cps, and make all the
+;; appropriate changes (including CPSing the argument). Name it
+;; use-of-M-cps. Treat this like an expression, so you should have one
+;; and only one use of empty k in your answer. Like use-of-M, your
+;; answer will not be a λ-expression.
 
 (define use-of-M
   ((M (λ (n) (add1 n))) '(1 2 3 4 5)))
 
-|#
-
-
-(define (use-of-M-cps k)
-  (error 'use-of-M-cps "not implemented"))
+(define use-of-M-cps 'not-implemented)
 
 ;; 16. CPS the following program, and call it strange-cps:
 
@@ -518,22 +519,15 @@ s
   (error 'strange-cps "not implemented"))
 
 ;; 17. Consider the following use of strange, called
-;; use-of-strange. Using your CPSed strange, rewrite use-of-strange
+;; use-of-strange. Using your CPSed strange, re-write use-of-strange
 ;; to call strange-cps, and make all the appropriate changes. Name it
-;; use-of-strange-cps. Define use-of-strange-cps as a procedure that
-;; accepts the continuation to which its final result is sent.
-
-#| Direct-style source expression:
+;; use-of-strange-cps.
 
 (define use-of-strange
   (let ([strange^ (((strange 5) 6) 7)])
     (((strange^ 8) 9) 10)))
 
-|#
-
-
-(define (use-of-strange-cps k)
-  (error 'use-of-strange-cps "not implemented"))
+(define use-of-strange-cps 'not-implemented)
 
 ;; 18. CPS the following program, and call it why-cps:
 
