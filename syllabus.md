@@ -150,10 +150,11 @@ Each quiz is scored on a single 0-4 scale:
 
 The best seven of the eight written quizzes count. Their points are summed out
 of 28 and scaled to the verification-quiz component in the grade breakdown.
-The dropped score absorbs one absence. For additional documented absences, I
+The dropped score absorbs one absence. ~~For additional documented absences,~~ I
 will offer one scheduled,
-cumulative paper-makeup window; I will not create bespoke individual makeup
-quizzes.
+~~cumulative paper-makeup window~~ **optional cumulative paper quiz, open to
+everyone, that replaces your second-lowest quiz score only if higher**; I will
+not create bespoke individual makeup quizzes.
 
 ## Homework
 

@@ -438,7 +438,7 @@ weeks:
       - day: W
         title: "Type inference"
         topics:
-          - desc: "Single cumulative paper-quiz makeup window for documented additional absences"
+          - desc: "Optional cumulative paper try-again quiz"
           - desc: "Constraint generation, unification, and inference"
         pre_readings: []
         videos: []
