@@ -45,7 +45,6 @@
 #| Assignment Guidelines |#
 
 ;; In addition to the standard Assignment Guidelines
-;; (https://hemann.pl/26FA-CS3113/hw/)
 
 ;; When CPSing, you may treat built-in procedures such as empty?,
 ;; add1, assv, car, <, and the like as "simple".

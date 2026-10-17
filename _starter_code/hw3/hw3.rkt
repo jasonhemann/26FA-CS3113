@@ -18,8 +18,7 @@
 
 #| ===== Assignment Guidelines ===== |#
 
-;; In addition to the standard Assignment Guidelines
-;; (https://hemann.pl/26FA-CS3113/hw/), follow the
+;; In addition to the standard Assignment Guidelines, follow the
 ;; assignment-specific artifact and review requirements below.
 ;;
 ;; Recall that in recent lectures, we've learned how to write an

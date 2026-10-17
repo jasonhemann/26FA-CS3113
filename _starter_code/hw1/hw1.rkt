@@ -35,7 +35,6 @@
 
 
 ;; In addition to the standard Assignment Guidelines
-;; (https://hemann.pl/26FA-CS3113/hw/)
 
 ;; You should write your solutions without creating explict help
 ;; functions. You may, however re-use your solutions to prior

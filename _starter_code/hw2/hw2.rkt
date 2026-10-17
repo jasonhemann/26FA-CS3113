@@ -29,7 +29,6 @@
 #| Assignment Guidelines |#
 
 ;; In addition to the standard Assignment Guidelines
-;; (https://hemann.pl/26FA-CS3113/hw/)
 
 ;; You will likely find memv, remv, assv, and letrec useful.
 
