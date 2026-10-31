@@ -279,12 +279,12 @@ weeks:
         pre_readings: []
         videos: []
         extra_resources:
-          # SU22 optional material, schedule.md:25; also the schedule linked by SU24.
+          # Semester-local copy of SU22 optional material, schedule.md:25.
           - title: "ri-k"
-            link: "https://hemann.pl/22SU-CS4400/assets/docs/ri-k.txt"
-          # SU22 optional material, schedule.md:25; also the schedule linked by SU24.
+            link: "/assets/docs/ri-k.txt"
+          # Semester-local copy of SU22 optional material, schedule.md:25.
           - title: "how to ri k"
-            link: "https://hemann.pl/22SU-CS4400/assets/docs/ri-k-method.rkt"
+            link: "/assets/docs/ri-k-method.rkt"
       - day: W
         title: "Remote class — Registerization"
         link: "/lec/registerization/"

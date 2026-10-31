@@ -99,7 +99,11 @@ classes: wide
 		{% for resource in session.extra_resources %}
 		  <li>
 			{% if resource.link %}
+			  {% if resource.link contains '://' %}
 			  <a href="{{ resource.link }}">{{ resource.title }}</a>
+			  {% else %}
+			  <a href="{{ resource.link | relative_url }}">{{ resource.title }}</a>
+			  {% endif %}
 			{% else %}
 			  {{ resource.title }}
 			{% endif %}
